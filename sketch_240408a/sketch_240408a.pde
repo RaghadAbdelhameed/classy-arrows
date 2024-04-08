@@ -12,6 +12,7 @@ void setup() {
   background1 = loadImage("bg1.jpg");
   background1.resize(width, height);
 }
+<<<<<<< HEAD
 void draw() {
   background(background1);
   if (showImage1) {
@@ -31,3 +32,7 @@ void mousePressed() {
 //  showImage1=true;
 
 //}
+=======
+void draw(){
+  background(0,0,255);}
+>>>>>>> bdd021245d7124a10acf95f4aab400260ebcae20
