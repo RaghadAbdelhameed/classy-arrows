@@ -27,7 +27,7 @@ void mousePressed() {
   showImage1=!showImage1;
   flag=false;
 }
-//void mouseReleased() {
-//  showImage1=true;
+void mouseReleased() {
+  showImage1=true;
 
-//}
+}
