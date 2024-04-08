@@ -1,37 +1,48 @@
-public class Ballon
-{
-
-  PImage[] balloons; // Array to hold balloon images
-  PImage background;
-  int numBalloons = 15;
-  int screenWidth = 500;
-  int spaceBetweenBalloons = 1; // Set space between balloons to 1 pixel
-  int y = 800;
-
-  void balloon() {
-    balloons = new PImage[numBalloons]; // Initialize the array
-
-    for (int i = 0; i < numBalloons; i++) {
-      balloons[i] = loadImage("redballoon.png"); // Load each balloon image into the array
-      balloons[i].resize(80, 100); // Resize each balloon image
-    }
+public class Ballon {
+  
+  private PImage balloon;
+  private float posX;
+  private float posY;
+  boolean exsist = true;
+  
+  Ballon(float x,float y) {
+    balloon = loadImage("redballoon.png");
+    this.posX=x;
+    this.posY=y;
   }
-
-  void display() {
-    // Calculate the total width occupied by balloons and spaces
-    float totalWidth = numBalloons * balloons[0].width + (numBalloons - 1) * spaceBetweenBalloons;
-
-    // Calculate the initial x-coordinate for the first balloon
-    float startX = (screenWidth - totalWidth) / 2;
-
-    // Draw each balloon with 1 pixel space between them
-    for (int i = 0; i < numBalloons; i++) {
-      image(balloons[i], startX + i * (balloons[i].width + spaceBetweenBalloons)+1100, y);
-    }
-    
-    y -= 3;
-    if (y <= 0) {
-      y = 800;
-    }
+  
+  public void setPosX(float posX) {
+    this.posX = posX;
+  }
+  
+  
+  public float getPosX() {
+    return posX;
+  }
+  
+ 
+  public void setPosY(float posY) {
+    this.posY = posY;
+  }
+  
+ 
+  public float getPosY() {
+    return posY;
+  }
+  
+  
+  public void setExsist(boolean exsist) {
+    this.exsist = exsist;
+  }
+  
+  public boolean isExsist() {
+    return exsist;
+  }
+  public void display()
+  {
+    image(balloon,posX,posY,80,100);
+    posY-=3;
+    if(posY<0)
+    posY=height;
   }
 }

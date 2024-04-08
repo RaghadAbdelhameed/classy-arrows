@@ -3,24 +3,30 @@ Character character;
 int shootarrows=0;
 Ballon redballoon;
 Arrow[] arrows=new Arrow[20];
+Ballon[] ballons=new Ballon[15];
 
 void setup() {
   fullScreen();
   character = new Character();
   background1 = loadImage("bg1.jpg");
   background1.resize(width, height);
-  redballoon=new Ballon();
-  redballoon.balloon();
   for(int i=0;i<20;i++)
   arrows[i]=new Arrow();
+  for(int i=0;i<15;i++)
+  ballons[i]=new Ballon(i*100+480,height);
 }
 void draw() {
   background(background1);
   character.display();
-  redballoon.display();
   for(int i=0;i<20;i++)
     if(arrows[i].flag)
        arrows[i].drawArrow();
+       
+       for(int i=0;i<15;i++)
+       {
+       ballons[i].display();
+       }
+   
   
   
   
