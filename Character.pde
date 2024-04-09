@@ -8,8 +8,7 @@ public class Character {
     character1 = loadImage("position1.png");
     character1.resize(500, 300);
     character2 = loadImage("position2.png");
-     character2.resize(500, 300);
-    
+    character2.resize(500, 300);
   }
   void setflag(boolean flag)
   {
@@ -26,15 +25,13 @@ public class Character {
       y=mouseY;
     }
   }
-void display()
-{
-  if(flag)
-  drawCharacter1();
-  else
-  drawCharacter2();
-  
-  
-}
+  void display()
+  {
+    if (flag)
+      drawCharacter1();
+    else
+      drawCharacter2();
+  }
   void drawCharacter1() {
     imageMode(CENTER);
     limitY();
