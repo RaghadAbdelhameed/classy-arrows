@@ -76,6 +76,7 @@ void DrawArrows()
         if (arrows[i].collidesWith(ballons[j])&&ballons[j].getExist()) {// Collision detected
           ballons[j].setExist(false); // Set the balloon as not existing
           shootballoons++;
+          // add song
         }
     }
   }
@@ -88,6 +89,8 @@ void ShowScore() {
   textSize(65);
   textAlign(LEFT, CENTER);
   text(" Score : " + score, 0, 950);
+  text(" Remaining arrows : " + (20-shootarrows), 0, 1000);
+ 
 }
 void ShowWon() {
   won="Congrats, YOU WIN!!";
