@@ -1,30 +1,24 @@
 public class Ballon {
-
-  private PImage balloon;
+  private PImage balloon=loadImage("redballoon.png");
   private float posX;
   private float posY;
-  boolean exist = true;
+  private boolean exist = true;// indicates the ballon still exsist or not
   Ballon(float x, float y) {
-    balloon = loadImage("redballoon.png");
     this.posX=x;
     this.posY=y;
+    balloon.resize(80,100);
   }
 
   public void setPosX(float posX) {
     this.posX = posX;
   }
 
-
+ public void setPosY(float posY) {
+    this.posY = posY;
+  }
   public float getPosX() {
     return posX;
   }
-
-
-  public void setPosY(float posY) {
-    this.posY = posY;
-  }
-
-
   public float getPosY() {
     return posY;
   }
@@ -34,12 +28,13 @@ public class Ballon {
     this.exist = exist;
   }
 
-  public boolean isExist() {
+  public boolean getExist() {
     return exist;
   }
   public void display()
   {
-    image(balloon, posX, posY, 80, 100);
+    imageMode(CENTER);
+    image(balloon, posX, posY);
     posY-=3;
     if (posY<0)
       posY=height;

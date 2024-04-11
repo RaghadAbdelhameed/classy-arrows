@@ -24,48 +24,44 @@ void setup() {
 void draw() {
   background(background0);
   button1.drawButtons();
-
   if (button1.IsButtonClicked()) {
     background(background1);
-
     character.display();
-    // Iterate through arrows
-    for (int i = 0; i < 20; i++) {
-      if (arrows[i].flag) {
-        arrows[i].drawArrow();
-
-        // Check for collision with balloons
-        for (int j = 0; j < 15; j++) {
-          if (arrows[i].collidesWith(ballons[j])) {
-            // Collision detected
-            ballons[j].setExist(false); // Set the balloon as not existing
-            // Perform any other actions you want after collision
-          }
-        }
-      }
-    }
-    // Display existing balloons
-    for (int i = 0; i < 15; i++) {
-      if (ballons[i].isExist())
-        ballons[i].display();
-    }
+     DrawArrows();
+    ShowBallons();
   }
 }
 void mousePressed() {
   button1.buttonCheck(mouseX, mouseY);
   if (mouseButton==RIGHT)
-  {
-    boolean current=character.getflag();
-    character.setflag(!current);
-  }
+    character.setPostion(!character.getpostion());
   if (mouseButton==LEFT)
   {
-    if (!character.getflag()&&shootarrows<=19)
+    if (!character.getpostion()&&shootarrows<20)
     {
-      character.setflag(true);
-      arrows[shootarrows].flag=true;
-      arrows[shootarrows].set(150, mouseY+40);
+      character.setPostion(true);
+      arrows[shootarrows].setExsist(true);
+      arrows[shootarrows].set(150, character.getY()+40);
       shootarrows++;
     }
   }
+}
+void ShowBallons()
+{
+    for (int i = 0; i < 15; i++)  // Display existing balloons
+      if (ballons[i].getExist())
+        ballons[i].display();
+}
+void DrawArrows()
+{
+      for (int i = 0; i < 20; i++) {
+      if (arrows[i].getexsist()) {
+        arrows[i].drawArrow();
+        
+        for (int j = 0; j < 15; j++) 
+          if (arrows[i].collidesWith(ballons[j]))// Collision detected
+            ballons[j].setExist(false); // Set the balloon as not existing
+
+      }
+    }
 }

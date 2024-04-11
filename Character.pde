@@ -1,44 +1,52 @@
-public class Character {
-  PImage character1;
-  PImage character2;
-  float y;
-  float x=150;
-  boolean flag=true;// true for standard postion otherwise for shooting postion
+public class Character  {
+  private final PImage character1= loadImage("position1.png");
+  private final PImage character2=loadImage("position2.png");
+  private float y;
+  private float x=100;// constant the character just move 1D
+  private boolean postion=true;// true for standard postion otherwise for shooting postion
   Character() {
-    character1 = loadImage("position1.png");
+     y=mouseY;
     character1.resize(500, 300);
-    character2 = loadImage("position2.png");
     character2.resize(500, 300);
   }
-  void setflag(boolean flag)
+  public void setPostion(boolean postion)
   {
-    this.flag=flag;
+    this.postion=postion;
   }
-  boolean getflag()
+  public boolean getpostion()
   {
-    return flag;
+    return postion;
   }
-  void limitY() {
-    if (mouseY>680) {
+  public void limitY() {// restrict to hit the ground
+    if (mouseY>680) 
       y=680;
-    } else {
+     else 
       y=mouseY;
-    }
+    
   }
-  void display()
+  public void display()
   {
-    if (flag)
+    if (postion)
       drawCharacter1();
     else
       drawCharacter2();
   }
-  void drawCharacter1() {
+ public  void drawCharacter1() {
     imageMode(CENTER);
     limitY();
-    image(character1, 150, y);
+    image(character1, x, y);
   }
-  void drawCharacter2() {
+  public void drawCharacter2() {
+    imageMode(CENTER);
     limitY();
-    image(character2, 150, y);
+    image(character2, x, y);
+  }
+  public float getX()
+  {
+    return x;
+  }
+  public float getY()
+  {
+    return y;
   }
 }
