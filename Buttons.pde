@@ -2,7 +2,7 @@ public class Buttons {
   PImage buttonClick;
   String buttonText="Start Game";
   String won="YOU WON!";
-  int textSize = 75;
+  int textSize = 70;
   int textX=width/2;
   int textY=height/2;
   int textWidth=500;
@@ -15,8 +15,8 @@ public class Buttons {
   boolean buttonClicked=false;
   Buttons() {
     buttonClick = loadImage("pngegg.png");
-    fontButton = createFont("Super Senior", textSize);
-    message = createFont("Super Senior", textSize);
+    fontButton = createFont(" Nicolast", textSize);
+    message = createFont("Nicolast", textSize);
     textFont(fontButton);
     textFont(message);
     buttonClick.resize(textWidth, textHeight);
