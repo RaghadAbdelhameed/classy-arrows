@@ -30,7 +30,7 @@ public class Arrow {
   }
   public void update()
   {
-    x+=4;
+    x+=6;
   }
   public void drawArrow() {
     imageMode(CENTER);

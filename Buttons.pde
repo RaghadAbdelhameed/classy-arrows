@@ -1,7 +1,7 @@
 public class Buttons {
   PImage buttonClick;
   String buttonText="Start Game";
-  String won="YOU WON!";
+  //String won="YOU WON!";
   int textSize = 70;
   int textX=width/2;
   int textY=height/2;
@@ -14,9 +14,9 @@ public class Buttons {
   PFont fontButton, message;
   boolean buttonClicked=false;
   Buttons() {
-    buttonClick = loadImage("pngegg.png");
-    fontButton = createFont(" Nicolast", textSize);
-    message = createFont("Nicolast", textSize);
+    buttonClick = loadImage("BlueButton.png");
+    fontButton = createFont("Speed Rush", textSize);
+    message = createFont("Speed Rush", textSize);
     textFont(fontButton);
     textFont(message);
     buttonClick.resize(textWidth, textHeight);
@@ -40,10 +40,10 @@ public class Buttons {
   boolean IsButtonClicked() {
     return buttonClicked;
   }
-  void wonMessage() {
-    fill(255);
-    textSize(textSize);
-    textAlign(CENTER, CENTER);
-    text(won, textX, textY);
-  }
+  //void wonMessage() {
+  //  fill(255);
+  //  textSize(textSize);
+  //  textAlign(CENTER, CENTER);
+  //  text(won, textX, textY);
+  //}
 }
