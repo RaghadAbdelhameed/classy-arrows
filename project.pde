@@ -2,7 +2,9 @@ PImage background1, background0;
 Character character;
 Buttons button1;
 Buttons won;
+int score=0;
 int shootarrows=0;
+int shootballoons=0;
 Ballon redballoon;
 Arrow[] arrows=new Arrow[20];
 Ballon[] ballons=new Ballon[15];
@@ -29,6 +31,7 @@ void draw() {
     character.display();
      DrawArrows();
     ShowBallons();
+    ShowScore();
   }
 }
 void mousePressed() {
@@ -57,11 +60,20 @@ void DrawArrows()
       for (int i = 0; i < 20; i++) {
       if (arrows[i].getexsist()) {
         arrows[i].drawArrow();
-        
         for (int j = 0; j < 15; j++) 
-          if (arrows[i].collidesWith(ballons[j]))// Collision detected
+          if (arrows[i].collidesWith(ballons[j])&&ballons[j].getExist()){// Collision detected
             ballons[j].setExist(false); // Set the balloon as not existing
-
+            shootballoons++;
+            }
+          }
       }
     }
-}
+
+ void ShowScore(){
+     
+         score = (20 - shootarrows + 1) * shootballoons;
+         fill(250);
+         textSize(65);
+         textAlign(LEFT, CENTER);
+         text(" Score : " + score, 0, 950);
+    }
