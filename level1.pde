@@ -1,3 +1,3 @@
-class Level1
+class Level1 extends level
 {
 }
