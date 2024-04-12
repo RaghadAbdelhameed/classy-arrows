@@ -16,8 +16,8 @@ Ballon[] ballons=new Ballon[15];
 
 void setup() {
   fullScreen();
-  music = new SoundFile(this, "C:/Users/al/Downloads/X2Download.app - Game of Thrones S8 Official Soundtrack _ The Night King - Ramin Djawadi _ WaterTower (128 kbps)-[AudioTrimmer.com].mp3");
-  balloonSound = new SoundFile(this, "C:/Users/al/Downloads/X2Download.app - Balloon Pop Sound Effect Royalty Free (128 kbps).mp3");
+  music = new SoundFile(this, "E:\\final project\\classy-arrows\\data\\X2Download.app - Game of Thrones S8 Official Soundtrack _ The Night King - Ramin Djawadi _ WaterTower (128 kbps)-[AudioTrimmer.com].mp3");
+  balloonSound = new SoundFile(this, "E:\\final project\\classy-arrows\\data\\X2Download.app - Balloon Pop Sound Effect Royalty Free (128 kbps).mp3");
   character = new Character();
   button1 = new Buttons();
   background1 = loadImage("bg1.jpg");
