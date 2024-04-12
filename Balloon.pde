@@ -6,14 +6,14 @@ public class Ballon {
   Ballon(float x, float y) {
     this.posX=x;
     this.posY=y;
-    balloon.resize(80,100);
+    balloon.resize(80, 100);
   }
 
   public void setPosX(float posX) {
     this.posX = posX;
   }
 
- public void setPosY(float posY) {
+  public void setPosY(float posY) {
     this.posY = posY;
   }
   public float getPosX() {
@@ -39,5 +39,4 @@ public class Ballon {
     if (posY<0)
       posY=height;
   }
-
 }

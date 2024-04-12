@@ -23,7 +23,7 @@ public class Character {
     if (mouseY>680)
       y=680;
     else
-    y=mouseY;
+      y=mouseY;
   }
   public void display()
   {
