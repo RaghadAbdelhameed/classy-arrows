@@ -1,3 +1,5 @@
+import processing.sound.*;
+SoundFile music;
 PImage background1, background0;
 PImage lvl2;
 Character character;
@@ -12,6 +14,8 @@ Ballon[] ballons=new Ballon[15];
 
 void setup() {
   fullScreen();
+  music = new SoundFile(this, "C:/Users/al/Downloads/X2Download.app - Game of Thrones S8 Official Soundtrack _ The Night King - Ramin Djawadi _ WaterTower (128 kbps)-[AudioTrimmer.com].mp3");
+
   character = new Character();
   button1 = new Buttons();
   background1 = loadImage("bg1.jpg");
@@ -27,6 +31,10 @@ void setup() {
 }
 void draw() {
   background(background0);
+ if (!music.isPlaying()) {
+    music.play();
+}
+
   button1.drawButtons();
   if (button1.IsButtonClicked()) {
     background(background1);
