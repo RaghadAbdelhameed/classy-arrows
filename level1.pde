@@ -1,3 +1,4 @@
+import processing.sound.*;
 class Level1
 {
   boolean finished=false;// indicated the level completed or not
@@ -10,6 +11,8 @@ class Level1
   int shootballoons=0;
   Arrow[] arrows=new Arrow[20];
   Ballon[] ballons=new Ballon[15];
+   SoundFile backgroundMusic;
+   SoundFile balloonSound;
   Level1()
   {
     character = new Character();
@@ -65,7 +68,7 @@ class Level1
           if (arrows[i].collidesWith(ballons[j])&&ballons[j].getExist()) {// Collision detected
             ballons[j].setExist(false); // Set the balloon as not existing
             shootballoons++;
-            // balloonSound.play();
+             //balloonSound.play();
           }
       }
     }
@@ -111,9 +114,9 @@ class Level1
   void initialize()
   {
     background(background0);
-    // if (!music.isPlaying()) {
-    //    music.play();
-    //}
+    //if (!backgroundMusic.isPlaying()) {
+    // backgroundMusic.play();
+  // }
   }
 
 
