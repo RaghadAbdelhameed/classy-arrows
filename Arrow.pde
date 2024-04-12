@@ -39,6 +39,6 @@ public class Arrow {
     
   }
   public boolean collidesWith(Ballon balloon) {
-  return dist(x,y,balloon.getPosX(),balloon.getPosY())<60;
+  return dist(x,y,balloon.getPosX(),balloon.getPosY())<400;
   }
 }

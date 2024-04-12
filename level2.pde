@@ -1,4 +1,4 @@
-class level2 extends level
+class Level2
 {
   
 }
