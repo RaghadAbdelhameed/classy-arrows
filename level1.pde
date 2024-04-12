@@ -106,7 +106,7 @@ void ShowFail() {
   textSize(100);
   textAlign(CENTER, CENTER);
   text("Sorry, You Failed.", width / 2, height / 2-50);
-  text("Your Score: " + score, width / 2, height / 2+50);
+ // text("Your Score: " + score, width / 2, height / 2+50);
 }
 
 
