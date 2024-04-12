@@ -3,7 +3,7 @@ class Level1
 {
   boolean finished=false;// indicated the level completed or not
   boolean win=false;// indicated the level the player won or not
-  PImage background1, background0;
+  PImage background1, background0,options;
   PImage lvl2;
   Character character;
   int score=0;
@@ -18,9 +18,11 @@ class Level1
     character = new Character();
     background1 = loadImage("bg1.jpg");
     background0 = loadImage("bg0.jpg");
+    options = loadImage("Options.png");
     lvl2=loadImage("level22.jpg");
     background1.resize(width, height);
     background0.resize(width, height);
+    options.resize(800,400);
     lvl2.resize(width, height);
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow();
@@ -114,6 +116,7 @@ class Level1
   void initialize()
   {
     background(background0);
+    image(options,width/2,height/2-300);
     //if (!backgroundMusic.isPlaying()) {
     // backgroundMusic.play();
   // }

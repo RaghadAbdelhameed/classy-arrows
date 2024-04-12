@@ -43,11 +43,11 @@ boolean IsNextClicked() {
     if (!buttonClicked) {
       imageMode(CENTER);
       image(buttonClick, textX, textY, textWidth, textHeight);
-      textAlign(CENTER, CENTER);
-      textSize(textSize);
-      textFont(buttonFont);
-      fill(255);
-      text(buttonText, textX, textY);
+      //textAlign(CENTER, CENTER);
+      //textSize(textSize);
+      //textFont(buttonFont);
+      //fill(255);
+      //text(buttonText, textX, textY);
     }
   }
   boolean IsButtonClicked() {
