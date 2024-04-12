@@ -1,12 +1,12 @@
 
-import processing.sound.*;
-SoundFile music;
-SoundFile balloonSound;
+//import processing.sound.*;
+//SoundFile music;
+//SoundFile balloonSound;
 PImage background1, background0;
 PImage lvl2;
 Character character;
 String won, fail;
-Buttons button1;
+Button start;
 int score=0;
 int shootarrows=0;
 int shootballoons=0;
@@ -16,10 +16,10 @@ Ballon[] ballons=new Ballon[15];
 
 void setup() {
   fullScreen();
-  music = new SoundFile(this, "E:\\final project\\classy-arrows\\data\\X2Download.app - Game of Thrones S8 Official Soundtrack _ The Night King - Ramin Djawadi _ WaterTower (128 kbps)-[AudioTrimmer.com].mp3");
-  balloonSound = new SoundFile(this, "E:\\final project\\classy-arrows\\data\\X2Download.app - Balloon Pop Sound Effect Royalty Free (128 kbps).mp3");
+ // music = new SoundFile(this, "KHALAF:\\final project\\classy-arrows\\data\\X2Download.app - Game of Thrones S8 Official Soundtrack _ The Night King - Ramin Djawadi _ WaterTower (128 kbps)-[AudioTrimmer.com].mp3");
+  //balloonSound = new SoundFile(this, "E:\\final project\\classy-arrows\\data\\X2Download.app - Balloon Pop Sound Effect Royalty Free (128 kbps).mp3");
   character = new Character();
-  button1 = new Buttons();
+  start = new Button("BlueButton.png","Start game",70,width/2,height/2,500,250);
   background1 = loadImage("bg1.jpg");
   background0 = loadImage("bg0.jpg");
   lvl2=loadImage("level22.jpg");
@@ -33,12 +33,12 @@ void setup() {
 }
 void draw() {
   background(background0);
- if (!music.isPlaying()) {
-    music.play();
-}
+// if (!music.isPlaying()) {
+//    music.play();
+//}
 
-  button1.drawButtons();
-  if (button1.IsButtonClicked()) {
+  start.drawButton();
+  if (start.IsButtonClicked()) {
     background(background1);
     character.display();
     DrawArrows();
@@ -57,7 +57,8 @@ void draw() {
   }
 }
 void mousePressed() {
-  button1.buttonCheck(mouseX, mouseY);
+  if(!start.IsButtonClicked())
+  start.buttonCheck(mouseX, mouseY);
   if (mouseButton==RIGHT)
     character.setPostion(!character.getpostion());
   if (mouseButton==LEFT)
@@ -86,7 +87,7 @@ void DrawArrows()
         if (arrows[i].collidesWith(ballons[j])&&ballons[j].getExist()) {// Collision detected
           ballons[j].setExist(false); // Set the balloon as not existing
           shootballoons++;
-          balloonSound.play();
+         // balloonSound.play();
      
         }
     }
@@ -101,6 +102,7 @@ void ShowScore() {
   textAlign(LEFT, CENTER);
   text(" Score : " + score, 0, 950);
   text(" Remaining arrows : " + (20-shootarrows), 0, 1000);
+  println(score);
  
 }
 void ShowWon() {
@@ -117,5 +119,6 @@ void ShowFail() {
   textSize(100);
   textAlign(CENTER, CENTER);
   text(fail, width / 2, height / 2-50);
+  //delay(1000);
   text("Your Score: " + score, width / 2, height / 2+50);
 }

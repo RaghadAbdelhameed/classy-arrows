@@ -1,49 +1,51 @@
-public class Buttons {
-  PImage buttonClick;
-  String buttonText="Start Game";
-  //String won="YOU WON!";
-  int textSize = 70;
-  int textX=width/2;
-  int textY=height/2;
-  int textWidth=500;
-  int textHeight=250;
-  int textLeft=textX-textWidth/2;
-  int textRight=textX+textWidth/2;
-  int textTop=textY-textHeight/2;
-  int textBottom=textY+textHeight/2;
-  PFont fontButton, message;
-  boolean buttonClicked=false;
-  Buttons() {
-    buttonClick = loadImage("BlueButton.png");
-    fontButton = createFont("Speed Rush", textSize);
-    message = createFont("Speed Rush", textSize);
-    textFont(fontButton);
-    textFont(message);
-    buttonClick.resize(textWidth, textHeight);
+class Button {
+  private PImage buttonClick; // image
+  private String buttonText;//text shown in the string
+  private int textSize; // font size
+  private PFont buttonFont; // font of the string (size+type)
+  private int textX;// x postion for the image
+  private int textY;// y postion for the image
+  private int textWidth;// width postion for the image
+  private int textHeight; // height for the image
+  private boolean buttonClicked; // booelan value determine the button clicked or not
+  Button(String imagePath, String buttonText, int textSize, int textX, int textY,int textWidth,int textHeight) {
+    buttonClick = loadImage(imagePath);
+   this. buttonText = buttonText;
+   this. textSize = textSize;
+    buttonFont = createFont("Speed rush", textSize);
+    this.textX = textX;
+   this. textY = textY;
+   this.textWidth=textWidth;
+   this.textHeight=textHeight;
+    buttonClicked = false;
+    buttonClick.resize(textWidth,textHeight);
+  }
+  
+  void drawButton() {
+    if (!buttonClicked) {
+    imageMode(CENTER);
+    image(buttonClick, textX, textY, textWidth, textHeight);
+    textAlign(CENTER, CENTER);
+    textSize(textSize);
+    textFont(buttonFont);
+    fill(255); 
+    text(buttonText, textX, textY);
   }
 
-  void drawButtons() {
-    if (!buttonClicked) {
-      imageMode(CENTER);
-      image(buttonClick, textX, textY );
-      fill(255);
-      textSize(textSize);
-      textAlign(CENTER, CENTER);
-      text(buttonText, textX, textY);
-    }
-  }
-  void buttonCheck(int mouseX, int mouseY) {        //to check if the button is clicked within it's borders
-    if (mouseX>textLeft && mouseX<textRight && mouseY>textTop && mouseY<textBottom) {
-      buttonClicked=true;
-    }
-  }
-  boolean IsButtonClicked() {
+}
+boolean IsButtonClicked() {
     return buttonClicked;
+}
+void buttonCheck(int x, int y) {
+  int left = textX - textWidth / 2;
+  int right = textX + textWidth / 2;
+  int top = textY - textHeight / 2;
+  int bottom = textY + textHeight / 2;
+  if (x >= left && x <= right && y >= top && y <= bottom) {
+    buttonClicked = true;
+  } else {
+    buttonClicked = false;
   }
-  //void wonMessage() {
-  //  fill(255);
-  //  textSize(textSize);
-  //  textAlign(CENTER, CENTER);
-  //  text(won, textX, textY);
-  //}
+}
+
 }
