@@ -1,48 +1,54 @@
 public class Arrow {
-  private float x;
-  private float y;
-  private final PImage arrow = loadImage("arrow2.png");
-  private boolean exsist = false;// decides arrow shoot or not
-  private  float difficulty=0;
+    private float x;
+    private float y;
+    private  PImage arrow;
+    private boolean exists = false; // decides arrow shoot or not
+    private float difficulty = 0;
 
-  Arrow() {
+    public Arrow(String imagePath) {
+        arrow = loadImage(imagePath);
+  
+            arrow.resize(100, 100);
+    
+        
+    }
 
-    arrow.resize(100, 100);
-  }
-  public void setExsist(boolean exsist)
-  {
-    this.exsist=exsist;
-  }
-  public float getX()
-  {
-    return x;
-  }
-  public float getY()
-  {
-    return y;
-  }
-  public boolean getexsist()
-  {
-    return exsist;
-  }
-  public void set(float x, float y) {
-    this.x = x;
-    this.y = y;
-  }
-  public void update()
-  {
-    x+=6;
-  }
-  public void setdifficulty(int difficulty)
-  {
-    this.difficulty=difficulty;
-  }
-  public void drawArrow() {
-    imageMode(CENTER);
-    image(arrow, x, y);
-    update();
-  }
-  public boolean collidesWith(Ballon balloon) {
-    return dist(x, y, balloon.getPosX(), balloon.getPosY())<difficulty;
-  }
+    public void setExsist(boolean exists) {
+        this.exists = exists;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public boolean getexsist() {
+        return exists;
+    }
+
+    public void set(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void update() {
+        x += 6;
+    }
+
+    public void setdifficulty(float difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public void drawArrow() {
+        imageMode(CENTER);
+        image(arrow, x, y);
+        update();
+    }
+
+    public boolean collidesWith(Ballon balloon) {
+        return dist(x, y, balloon.getPosX(), balloon.getPosY()) < difficulty;
+    }
 }

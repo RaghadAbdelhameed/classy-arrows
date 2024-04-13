@@ -1,26 +1,30 @@
 //import processing.sound.*;
 class Level1
 {
-  Button easy, medium, hard, nextLevel;
+  Button easy, medium, hard;
   PImage background1, background0, options;
   PImage lvl2;
   Character character;
-  int score=0;
-  int shootarrows=0;
-  int shootballoons=0;
+  int score;
+  int shootarrows;
+  int shootballoons;
   Arrow[] arrows=new Arrow[20];
   Ballon[] ballons=new Ballon[15];
   PFont customFont;
   //SoundFile backgroundMusic;
   //SoundFile balloonSound;
-  boolean setdifficlty=false;// indicates the difficulty has been set or not?
+  boolean setdifficlty;// indicates the difficulty has been set or not?
+  boolean startedgame;// indicates the game is started or not?
+  boolean win;
+
+
   Level1()
   {
+   
     easy = new Button("Easy.png", width/2, height/2-100, 500, 250);
     medium = new Button("Medium.png", width/2, height/2+50, 500, 250);
     hard = new Button("Hard.png", width/2, height/2+200, 500, 250);
-    nextLevel=new Button("NextLevel.png", 1700, 950, 700, 350);
-    character = new Character();
+    character = new Character("position1.png","position2.png","chrcDead.png");
     background1 = loadImage("bg1.jpg");
     background0 = loadImage("bg0.jpg");
     options = loadImage("Options.png");
@@ -30,10 +34,16 @@ class Level1
     options.resize(800, 400);
     lvl2.resize(width, height);
     for (int i=0; i<20; i++)
-      arrows[i]=new Arrow();
+      arrows[i]=new Arrow("arrow2.png");
     for (int i=0; i<15; i++)
       ballons[i]=new Ballon(i*100+480, height);
     customFont = createFont("Speed Rush", 32);
+    setdifficlty=false;
+    startedgame=false;
+    win=false;
+    shootarrows=0;
+    shootballoons=0;
+    score=0;
   }
 
 
@@ -47,6 +57,7 @@ class Level1
 
   void begin(int difficulty)
   {
+    startedgame=true;
     if (!setdifficlty)
     {
       for (Arrow it : arrows)
@@ -61,7 +72,6 @@ class Level1
     if (shootarrows<20&&shootballoons==15) {
       background(lvl2);
       character.drawcharacterhappy();
-      nextLevel.drawButton();
       showWin();
     }
     if (shootarrows==20&&shootballoons<15) {
@@ -99,16 +109,17 @@ class Level1
     textAlign(LEFT, CENTER);
     text(" Score : " + score, 0, 950);
     text(" Remaining arrows : " + (20-shootarrows), 0, 1000);
-    println(score);
+   
   }
   void showWin() {
 
-    //win=true;
+    win=true;
     fill (102, 0, 102);
     textSize(100);
     textAlign(CENTER, CENTER);
     text("Congrats, YOU WIN!!", width / 2, height / 2-50);
     text("Your Score: " + score, width / 2, height / 2+50);
+  
   }
 
 
@@ -137,11 +148,11 @@ class Level1
   void setdifficulty()
   {
     if (easy.IsButtonClicked())
-      level1.begin(100);
+      begin(100);
     else if (medium.IsButtonClicked())
-      level1.begin(60);
+      begin(60);
     else if (hard.IsButtonClicked())
-      level1.begin(20);
+      begin(20);
   }
   void checkButtons()
   {
@@ -151,6 +162,9 @@ class Level1
       medium.buttonCheck(mouseX, mouseY);
     if (!hard.IsButtonClicked())
       hard.buttonCheck(mouseX, mouseY);
+      if(startedgame)
+        action();
+       
   }
   void action()
   {

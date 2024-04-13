@@ -1,23 +1,31 @@
 public class Character {
-  private final PImage character1= loadImage("position1.png");
-  private final PImage character2=loadImage("position2.png");
-  private final PImage characterdead=loadImage("chrcDead.png");
-  private float y;
-  private float x=100;// constant the character just move 1D
-  private boolean postion=true;// true for standard postion otherwise for shooting postion
-  Character() {
-    y=mouseY;
-    character1.resize(500, 300);
-    character2.resize(500, 300);
-    characterdead.resize(500, 300);
-  }
-  public void setPostion(boolean postion)
+ private PImage character1;
+    private PImage character2;
+    private PImage characterdead;
+    private float y;
+    private float x = 100;  // constant; the character just moves 1D
+    private boolean position = true;  // true for standard position, otherwise for shooting position
+
+    // Constructor with image paths as parameters
+ Character(String path1, String path2, String pathDead) {
+  this.character1 = loadImage(path1);
+  this.character2 = loadImage(path2);
+  this.characterdead = loadImage(pathDead);
+
+        // Resize images
+  character1.resize(500, 300);
+  character2.resize(500, 300);
+ characterdead.resize(500, 300);
+
+        y = mouseY;
+    }
+  public void setPostion(boolean position)
   {
-    this.postion=postion;
+    this.position=position;
   }
   public boolean getpostion()
   {
-    return postion;
+    return position;
   }
   public void limitY() {// restrict to hit the ground
     if (mouseY>680)
@@ -27,7 +35,7 @@ public class Character {
   }
   public void display()
   {
-    if (postion)
+    if (position)
       drawCharacter1();
     else
       drawCharacter2();
