@@ -2,7 +2,8 @@ public class Arrow {
   private float x;
   private float y;
   private final PImage arrow = loadImage("arrow2.png");
-  private boolean exsist = false; // decides arrow shoot or not
+  private boolean exsist = false;// decides arrow shoot or not 
+  private  float difficulty=0; 
 
   Arrow() {
 
@@ -32,12 +33,16 @@ public class Arrow {
   {
     x+=6;
   }
+  public void setdifficulty(int difficulty)
+  {
+    this.difficulty=difficulty;
+  }
   public void drawArrow() {
     imageMode(CENTER);
     image(arrow, x, y);
     update();
   }
   public boolean collidesWith(Ballon balloon) {
-    return dist(x, y, balloon.getPosX(), balloon.getPosY())<200;
+    return dist(x, y, balloon.getPosX(), balloon.getPosY())<difficulty;
   }
 }

@@ -1,8 +1,7 @@
-import processing.sound.*;
+//import processing.sound.*;
 class Level1
 {
-  boolean finished=false;// indicated the level completed or not
-  boolean win=false;// indicated the level the player won or not
+  Button easy, medium, hard,nextLevel;
   PImage background1, background0,options;
   PImage lvl2;
   Character character;
@@ -11,17 +10,19 @@ class Level1
   int shootballoons=0;
   Arrow[] arrows=new Arrow[20];
   Ballon[] ballons=new Ballon[15];
-   SoundFile backgroundMusic;
-   SoundFile balloonSound;
-   Difficulty difficulty;
+   //SoundFile backgroundMusic;
+   //SoundFile balloonSound;
+   boolean setdifficlty=false;// indicates the difficulty has been set or not?
   Level1()
   {
+     easy = new Button("Easy.png", width/2, height/2-100, 500, 250);
+  medium = new Button("Medium.png", width/2, height/2+50, 500, 250);
+  hard = new Button("Hard.png", width/2, height/2+200, 500, 250);
     character = new Character();
     background1 = loadImage("bg1.jpg");
     background0 = loadImage("bg0.jpg");
     options = loadImage("Options.png");
     lvl2=loadImage("level22.jpg");
-    setDifficulty("medium");
     background1.resize(width, height);
     background0.resize(width, height);
     options.resize(800,400);
@@ -32,19 +33,7 @@ class Level1
       ballons[i]=new Ballon(i*100+480, height);
   }
 
-void setDifficulty(String difficultyLevel) {
-    switch (difficultyLevel) {
-        case "easy":
-            difficulty = new Difficulty(100);
-            break;
-        case "medium":
-            difficulty = new Difficulty(60);
-            break;
-        case "hard":
-            difficulty = new Difficulty(20);
-            break;
-    }
-}
+
   void ShowBallons()
   {
     for (int i = 0; i < 15; i++)  // Display existing balloons
@@ -53,8 +42,15 @@ void setDifficulty(String difficultyLevel) {
   }
 
 
-  void begin()
+  void begin(int difficulty)
   {
+    if(!setdifficlty)
+    {
+      for(Arrow it:arrows)
+      it.setdifficulty(difficulty);
+      setdifficlty=true;
+      
+    }
     background(background1);
     character.display();
     DrawArrows();
@@ -64,7 +60,7 @@ void setDifficulty(String difficultyLevel) {
       background(lvl2);
       character.drawcharacterhappy();
       ShowWon();
-      NextLevel.displayNextLevel();
+     // NextLevel.displayNextLevel();
     }
     if (shootarrows==20&&shootballoons<15) {
       background(background0);
@@ -102,14 +98,14 @@ void setDifficulty(String difficultyLevel) {
     text(" Remaining arrows : " + (20-shootarrows), 0, 1000);
     println(score);
   }
-  boolean getwin()
-  {
-    return win;
-  }
+  //boolean getwin()
+  //{
+  //  //return win;
+  //}
 
   void ShowWon() {
 
-    win=true;
+    //win=true;
     fill (102, 0, 102);
     textSize(100);
     textAlign(CENTER, CENTER);
@@ -127,16 +123,38 @@ void setDifficulty(String difficultyLevel) {
   }
 
 
-  void initialize()
+  void start()
   {
-    background(background0);
+     background(background0);
+      easy.drawButton();
+     medium.drawButton();
+     hard.drawButton();
     image(options,width/2,height/2-300);
     //if (!backgroundMusic.isPlaying()) {
     // backgroundMusic.play();
   // }
+      setdifiiculty();
   }
 
+void setdifiiculty()
+{
+    if (easy.IsButtonClicked())
+    level1.begin(100);
+    else if(medium.IsButtonClicked())
+    level1.begin(60);
+    else if(hard.IsButtonClicked())
+    level1.begin(20);
+}
+void cheeckbuttons()
+{
+  if (!easy.IsButtonClicked())
+ easy.buttonCheck(mouseX, mouseY);
+  if(!medium.IsButtonClicked())
+ medium.buttonCheck(mouseX, mouseY);
+ if(!hard.IsButtonClicked())
+ hard.buttonCheck(mouseX, mouseY);
 
+}
   void action()
   {
     if (mouseButton==RIGHT)
