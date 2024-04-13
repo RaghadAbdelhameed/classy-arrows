@@ -13,6 +13,7 @@ class Level1
   Ballon[] ballons=new Ballon[15];
    SoundFile backgroundMusic;
    SoundFile balloonSound;
+   Difficulty difficulty;
   Level1()
   {
     character = new Character();
@@ -20,6 +21,7 @@ class Level1
     background0 = loadImage("bg0.jpg");
     options = loadImage("Options.png");
     lvl2=loadImage("level22.jpg");
+    setDifficulty("medium");
     background1.resize(width, height);
     background0.resize(width, height);
     options.resize(800,400);
@@ -30,7 +32,19 @@ class Level1
       ballons[i]=new Ballon(i*100+480, height);
   }
 
-
+void setDifficulty(String difficultyLevel) {
+    switch (difficultyLevel) {
+        case "easy":
+            difficulty = new Difficulty(100);
+            break;
+        case "medium":
+            difficulty = new Difficulty(60);
+            break;
+        case "hard":
+            difficulty = new Difficulty(20);
+            break;
+    }
+}
   void ShowBallons()
   {
     for (int i = 0; i < 15; i++)  // Display existing balloons
