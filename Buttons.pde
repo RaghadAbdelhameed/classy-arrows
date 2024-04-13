@@ -5,7 +5,7 @@ class Button {
   private int textWidth;// width postion for the image
   private int textHeight; // height for the image
   private boolean buttonClicked; // booelan value determine the button clicked or not
-  Button(String imagePath,  int textX, int textY, int textWidth, int textHeight) {
+  Button(String imagePath, int textX, int textY, int textWidth, int textHeight) {
     buttonClick = loadImage(imagePath);
 
     this.textX = textX;
@@ -21,7 +21,6 @@ class Button {
     if (!buttonClicked) {
       imageMode(CENTER);
       image(buttonClick, textX, textY, textWidth, textHeight);
-     
     }
   }
   boolean IsButtonClicked() {
@@ -32,10 +31,9 @@ class Button {
     int right = textX + textWidth / 2;
     int top = textY - textHeight / 2;
     int bottom = textY + textHeight / 2;
-    if (x >= left && x <= right && y >= top && y <= bottom) 
+    if (x >= left && x <= right && y >= top && y <= bottom)
       buttonClicked = true;
-    else 
+    else
       buttonClicked = false;
-    
   }
 }

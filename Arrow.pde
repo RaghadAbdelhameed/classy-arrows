@@ -2,8 +2,8 @@ public class Arrow {
   private float x;
   private float y;
   private final PImage arrow = loadImage("arrow2.png");
-  private boolean exsist = false;// decides arrow shoot or not 
-  private  float difficulty=0; 
+  private boolean exsist = false;// decides arrow shoot or not
+  private  float difficulty=0;
 
   Arrow() {
 
