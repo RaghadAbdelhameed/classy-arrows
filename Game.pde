@@ -10,15 +10,15 @@ void setup() {
   nextLevel=new Button("NextLevel.png", 1700, 950, 700, 350);
 }
 void draw() {
-  level2.start();
-  //if(level1.win)
-  //{
-  // nextLevel.drawButton();
-  // if(nextLevel.IsButtonClicked())
-  //    level2.start();
-  //}
+  level1.start();
+  if(level1.win)
+  {
+   nextLevel.drawButton();
+   if(nextLevel.IsButtonClicked())
+      level2.start();
+  }
 }
 void mousePressed() {
-  level2.checkButtons();
+  level1.checkButtons();
   nextLevel.buttonCheck(mouseX, mouseY);
 }

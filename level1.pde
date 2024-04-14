@@ -16,7 +16,14 @@ class Level1
   boolean setdifficlty;// indicates the difficulty has been set or not?
   boolean startedgame;// indicates the game is started or not?
   boolean win;
-
+  int widthHappy=800;
+  int heightHappy=600;
+  int xHappy=150;
+  int yHappy=760;
+  int widthDead=600;
+  int heightDead=300;
+  int xDead=230;
+  int yDead=950;
 
   Level1()
   {
@@ -24,9 +31,9 @@ class Level1
     easy = new Button("Easy.png", width/2, height/2-100, 500, 250);
     medium = new Button("Medium.png", width/2, height/2+50, 500, 250);
     hard = new Button("Hard.png", width/2, height/2+200, 500, 250);
-    character = new Character("position1.png", "position2.png", "chrcDead.png", 500, 300);
-    background1 = loadImage("bg1.jpg");
-    background0 = loadImage("bg0.jpg");
+    character = new Character("position1.png", "position2.png", "chrcDead.png", 600, 400);
+    background1 = loadImage("backg01.jpg");
+    background0 = loadImage("backg012.jpg");
     options = loadImage("Options.png");
     lvl2=loadImage("bg022.png");
     background1.resize(width, height);
@@ -71,12 +78,12 @@ class Level1
     showScore();
     if (shootarrows<20&&shootballoons==15) {
       background(lvl2);
-      character.drawCharacterHappy(800, 600, 150, 760);
+      character.drawCharacterHappy(widthHappy, heightHappy, xHappy, yHappy);
       showWin();
     }
     if (shootarrows==20&&shootballoons<15) {
       background(background0);
-      character.drawCharacterDead(600, 300, 230, 950);
+      character.drawCharacterDead(widthDead, heightDead, xDead, yDead);
       showFail();
     }
     textFont(customFont);
@@ -146,7 +153,7 @@ class Level1
   void setdifficulty()
   {
     if (easy.IsButtonClicked())
-      begin(100);
+      begin(1000);
     else if (medium.IsButtonClicked())
       begin(60);
     else if (hard.IsButtonClicked())

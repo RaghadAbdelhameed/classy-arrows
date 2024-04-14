@@ -2,7 +2,14 @@ class Level2 extends Level1
 {
   Level2()
   {
-    super();
+    widthHappy=600;
+    heightHappy=450;
+    xHappy=150;
+    yHappy=800;
+    widthDead=750;
+    heightDead=400;
+    xDead=180;
+    yDead=790;
     background1 = loadImage("bg02.png");
     background0 = loadImage("bg022.png");
     background1.resize(width, height);
