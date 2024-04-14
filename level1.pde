@@ -107,16 +107,19 @@ class Level1
   }
 
 
+void showScore() {
+    if (shootarrows < 20 && shootballoons <= 15) { // Only update score if the game is still ongoing
+        score = (20 - shootarrows + 1) * shootballoons;
+        fill(250);
+        textSize(65);
+        textAlign(LEFT, CENTER);
+        text(" Score : " + score, 0, 950);
+        text(" Remaining arrows : " + (20 - shootarrows), 0, 1000);
+    }
+}
 
-  void showScore() {
 
-    score = (20 - shootarrows + 1) * shootballoons;
-    fill(250);
-    textSize(65);
-    textAlign(LEFT, CENTER);
-    text(" Score : " + score, 0, 950);
-    text(" Remaining arrows : " + (20-shootarrows), 0, 1000);
-  }
+  
   void showWin() {
 
     win=true;
@@ -153,7 +156,7 @@ class Level1
   void setdifficulty()
   {
     if (easy.IsButtonClicked())
-      begin(1000);
+      begin(100);
     else if (medium.IsButtonClicked())
       begin(60);
     else if (hard.IsButtonClicked())
@@ -171,7 +174,8 @@ class Level1
       action();
   }
   void action()
-  {
+  {  if (win) // If the game has been won, don't allow shooting arrows
+        return;
     if (mouseButton==RIGHT)
       character.setPostion(!character.getpostion());
     if (mouseButton==LEFT)
