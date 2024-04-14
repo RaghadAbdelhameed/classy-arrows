@@ -3,8 +3,7 @@ public class Arrow {
   private float y;
   private  PImage arrow;
   private boolean exists = false; // decides arrow shoot or not
-
-
+private  float difficulty;
   public Arrow(String imagePath) {
     arrow = loadImage(imagePath);
 
@@ -31,6 +30,10 @@ public class Arrow {
     this.x = x;
     this.y = y;
   }
+  public void setDifficulty(float difficulty)
+  {
+    this.difficulty=difficulty;
+  }
 
   public void update() {
     x += 6;
@@ -44,7 +47,7 @@ public class Arrow {
     update();
   }
 
-  public boolean collidesWith(Ballon balloon,int difficulty ) {
+  public boolean collidesWith(Ballon balloon ) {
     return dist(x, y, balloon.getPosX(), balloon.getPosY()) < difficulty;
   }
 }

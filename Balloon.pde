@@ -1,12 +1,14 @@
 public class Ballon {
-  private PImage balloon=loadImage("redballoon.png");
-  private float posX;
-  private float posY;
-  private boolean exist = true;// indicates the ballon still exsist or not
-  Ballon(float x, float y) {
+   PImage balloon;
+   float posX;
+   float posY;
+   boolean exist = true;// indicates the ballon still exsist or not
+  Ballon(String imagepath,float x, float y) {
+    balloon=loadImage(imagepath);
     this.posX=x;
     this.posY=y;
     balloon.resize(80, 100);
+    exist = true;
   }
 
   public void setPosX(float posX) {

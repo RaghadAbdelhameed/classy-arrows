@@ -15,6 +15,7 @@ class Level1
   //SoundFile balloonSound;
   boolean startedgame;// indicates the game is started or not?
   boolean win;
+  boolean setdificulty;
   int widthHappy;
   int heightHappy;
   int xHappy;
@@ -23,7 +24,6 @@ class Level1
   int heightDead;
   int xDead;
   int yDead;
-  int difficulty;
   boolean gameended;
   Level1()
   {
@@ -42,8 +42,8 @@ class Level1
     lvl2.resize(width, height);
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow("arrow2.png");
-    for (int i=0; i<15; i++)
-      ballons[i]=new Ballon(i*100+480, height);
+    for (int i=0; i<ballons.length; i++)
+      ballons[i]=new Ballon("redballoon.png",i*100+480, height);
     customFont = createFont("Speed Rush", 32);
     gameended=false;
     startedgame=false;
@@ -59,12 +59,13 @@ class Level1
     heightDead=300;
     xDead=230;
     yDead=950;
+    setdificulty=false;
   }
 
 
   void ShowBallons()
   {
-    for (int i = 0; i < 15; i++)  // Display existing balloons
+    for (int i = 0; i < ballons.length; i++)  // Display existing balloons
       if (ballons[i].getExist())
         ballons[i].display();
   }
@@ -72,19 +73,26 @@ class Level1
 
   void begin(int difficulty)
   {
-    this.difficulty=difficulty;
+    if(!setdificulty)
+    {
+      for(Arrow it:arrows)
+       it.setDifficulty(difficulty);
+       setdificulty=true;
+    }
+    
+    
     startedgame=true;
     background(background1);
     character.display();
     DrawArrows();
     ShowBallons();
     showScore();
-    if (shootarrows<20&&shootballoons==15) {
+    if (shootarrows<20&&shootballoons==ballons.length) {
       background(lvl2);
       character.drawCharacterHappy(widthHappy, heightHappy, xHappy, yHappy);
       showWin();
     }
-    if (shootarrows==20&&shootballoons<15) {
+    if (shootarrows==20&&shootballoons<ballons.length) {
       background(background0);
       character.drawCharacterDead(widthDead, heightDead, xDead, yDead);
       showFail();
@@ -99,8 +107,8 @@ class Level1
     for (int i = 0; i < 20; i++) {
       if (arrows[i].getexsist()) {
         arrows[i].drawArrow();
-        for (int j = 0; j < 15; j++)
-          if (arrows[i].collidesWith(ballons[j], difficulty)&&ballons[j].getExist()) {// Collision detected
+        for (int j = 0; j < ballons.length; j++)
+          if (arrows[i].collidesWith(ballons[j])&&ballons[j].getExist()) {// Collision detected
             ballons[j].setExist(false); // Set the balloon as not existing
             shootballoons++;
             //balloonSound.play();
@@ -111,7 +119,7 @@ class Level1
 
 
   void showScore() {
-    if (shootarrows < 20 && shootballoons <= 15) { // Only update score if the game is still ongoing
+    if (shootarrows < 20 && shootballoons <= ballons.length) { // Only update score if the game is still ongoing
       score = (20 - shootarrows + 1) * shootballoons;
       fill(250);
       textSize(65);
@@ -170,7 +178,7 @@ boolean getGameEnded()
     else if (medium.IsButtonClicked())
       begin(60);
     else if (hard.IsButtonClicked())
-      begin(20);
+      begin(1);
   }
   void checkButtons()
   {

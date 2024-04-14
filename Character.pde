@@ -28,8 +28,8 @@ public class Character {
     return position;
   }
   public void limitY() {// restrict to hit the ground
-    if (mouseY>800)
-      y=800;
+    if (mouseY>780)
+      y=780;
     else
       y=mouseY;
   }
