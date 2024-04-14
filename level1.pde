@@ -1,7 +1,7 @@
 //import processing.sound.*;
 class Level1
 {
-  Button easy, medium, hard;
+  Button easy, medium, hard, nextLevel;
   PImage background1, background0, options;
   PImage lvl2;
   Character character;
@@ -13,24 +13,24 @@ class Level1
   PFont customFont;
   //SoundFile backgroundMusic;
   //SoundFile balloonSound;
-  boolean setdifficlty;// indicates the difficulty has been set or not?
   boolean startedgame;// indicates the game is started or not?
   boolean win;
-  int widthHappy=800;
-  int heightHappy=600;
-  int xHappy=150;
-  int yHappy=760;
-  int widthDead=600;
-  int heightDead=300;
-  int xDead=230;
-  int yDead=950;
-
+  int widthHappy;
+  int heightHappy;
+  int xHappy;
+  int yHappy;
+  int widthDead;
+  int heightDead;
+  int xDead;
+  int yDead;
+  int difficulty;
+  boolean gameended;
   Level1()
   {
-
+    nextLevel=new Button("Next level.png", 1700, 950, 423, 123);
     easy = new Button("Easy.png", width/2, height/2-100, 380, 130);
-    medium = new Button("Medium.png", width/2, height/2+70,  380, 130);
-    hard = new Button("Hard.png", width/2, height/2+240,  380, 130);
+    medium = new Button("Medium.png", width/2, height/2+70, 380, 130);
+    hard = new Button("Hard.png", width/2, height/2+240, 380, 130);
     character = new Character("position1.png", "position2.png", "chrcDead.png", 600, 400);
     background1 = loadImage("backg01.jpg");
     background0 = loadImage("backg012.jpg");
@@ -45,12 +45,20 @@ class Level1
     for (int i=0; i<15; i++)
       ballons[i]=new Ballon(i*100+480, height);
     customFont = createFont("Speed Rush", 32);
-    setdifficlty=false;
+    gameended=false;
     startedgame=false;
     win=false;
     shootarrows=0;
     shootballoons=0;
     score=0;
+    widthHappy=800;
+    heightHappy=600;
+    xHappy=150;
+    yHappy=760;
+    widthDead=600;
+    heightDead=300;
+    xDead=230;
+    yDead=950;
   }
 
 
@@ -64,13 +72,8 @@ class Level1
 
   void begin(int difficulty)
   {
+    this.difficulty=difficulty;
     startedgame=true;
-    if (!setdifficlty)
-    {
-      for (Arrow it : arrows)
-        it.setdifficulty(difficulty);
-      setdifficlty=true;
-    }
     background(background1);
     character.display();
     DrawArrows();
@@ -97,7 +100,7 @@ class Level1
       if (arrows[i].getexsist()) {
         arrows[i].drawArrow();
         for (int j = 0; j < 15; j++)
-          if (arrows[i].collidesWith(ballons[j])&&ballons[j].getExist()) {// Collision detected
+          if (arrows[i].collidesWith(ballons[j], difficulty)&&ballons[j].getExist()) {// Collision detected
             ballons[j].setExist(false); // Set the balloon as not existing
             shootballoons++;
             //balloonSound.play();
@@ -107,19 +110,22 @@ class Level1
   }
 
 
-void showScore() {
+  void showScore() {
     if (shootarrows < 20 && shootballoons <= 15) { // Only update score if the game is still ongoing
-        score = (20 - shootarrows + 1) * shootballoons;
-        fill(250);
-        textSize(65);
-        textAlign(LEFT, CENTER);
-        text(" Score : " + score, 0, 950);
-        text(" Remaining arrows : " + (20 - shootarrows), 0, 1000);
+      score = (20 - shootarrows + 1) * shootballoons;
+      fill(250);
+      textSize(65);
+      textAlign(LEFT, CENTER);
+      text(" Score : " + score, 0, 950);
+      text(" Remaining arrows : " + (20 - shootarrows), 0, 1000);
     }
+  }
+boolean getGameEnded()
+{
+  return gameended;
 }
 
 
-  
   void showWin() {
 
     win=true;
@@ -128,6 +134,10 @@ void showScore() {
     textAlign(CENTER, CENTER);
     text("Congrats, YOU WIN!!", width / 2, height / 2-50);
     text("Your Score: " + score, width / 2, height / 2+50);
+      nextLevel.drawButton();
+      nextLevel.buttonCheck(mouseX,mouseY);
+      if(nextLevel.IsButtonClicked()&&mousePressed)
+      gameended=true;
   }
 
 
@@ -174,8 +184,9 @@ void showScore() {
       action();
   }
   void action()
-  {  if (win) // If the game has been won, don't allow shooting arrows
-        return;
+  {
+    if (win) // If the game has been won, don't allow shooting arrows
+      return;
     if (mouseButton==RIGHT)
       character.setPostion(!character.getpostion());
     if (mouseButton==LEFT)

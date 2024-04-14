@@ -18,24 +18,19 @@ class Level2 extends Level1
       arrows[i]=new Arrow("arrow1.png");
     character = new Character("position21.png", "position22.png", "position23.png", 400, 300);
 
-    // set new designs for buttons  if u want
-    // character=new character() // if u want
-    // set the background and resize them  if u want
-    // set the desing for the arrows(as level1) if u want
-    // take care of the variables of the class level1 if u want
+   
+  }
+//  @override
+    void showWin() {
+
+    win=true;
+    fill (247, 250, 227);
+    textSize(100);
+    textAlign(CENTER, CENTER);
+    text("Congrats, YOU WIN!!", width / 2, height / 2-50);
+    text("Your Score: " + score, width / 2, height / 2+50);
+  
   }
 
-  void begin() {
 
-    if (shootarrows<20&&shootballoons==15) {
-      background(background0);
-      character.drawCharacterHappy(150, 150, 150, 760);
-      showWin();
-    }
-    if (shootarrows==20&&shootballoons<15) {
-      background(background0);
-      character.drawCharacterDead(600, 400, 200, 1000);
-      showFail();
-    }
-  }
 }
