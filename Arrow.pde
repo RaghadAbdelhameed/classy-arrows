@@ -1,54 +1,52 @@
 public class Arrow {
-    private float x;
-    private float y;
-    private  PImage arrow;
-    private boolean exists = false; // decides arrow shoot or not
-    private float difficulty = 0;
+  private float x;
+  private float y;
+  private  PImage arrow;
+  private boolean exists = false; // decides arrow shoot or not
+  private float difficulty = 0;
 
-    public Arrow(String imagePath) {
-        arrow = loadImage(imagePath);
-  
-            arrow.resize(100, 100);
-    
-        
-    }
+  public Arrow(String imagePath) {
+    arrow = loadImage(imagePath);
 
-    public void setExsist(boolean exists) {
-        this.exists = exists;
-    }
+    arrow.resize(100, 100);
+  }
 
-    public float getX() {
-        return x;
-    }
+  public void setExsist(boolean exists) {
+    this.exists = exists;
+  }
 
-    public float getY() {
-        return y;
-    }
+  public float getX() {
+    return x;
+  }
 
-    public boolean getexsist() {
-        return exists;
-    }
+  public float getY() {
+    return y;
+  }
 
-    public void set(float x, float y) {
-        this.x = x;
-        this.y = y;
-    }
+  public boolean getexsist() {
+    return exists;
+  }
 
-    public void update() {
-        x += 6;
-    }
+  public void set(float x, float y) {
+    this.x = x;
+    this.y = y;
+  }
 
-    public void setdifficulty(float difficulty) {
-        this.difficulty = difficulty;
-    }
+  public void update() {
+    x += 6;
+  }
 
-    public void drawArrow() {
-        imageMode(CENTER);
-        image(arrow, x, y);
-        update();
-    }
+  public void setdifficulty(float difficulty) {
+    this.difficulty = difficulty;
+  }
 
-    public boolean collidesWith(Ballon balloon) {
-        return dist(x, y, balloon.getPosX(), balloon.getPosY()) < difficulty;
-    }
+  public void drawArrow() {
+    imageMode(CENTER);
+    image(arrow, x, y);
+    update();
+  }
+
+  public boolean collidesWith(Ballon balloon) {
+    return dist(x, y, balloon.getPosX(), balloon.getPosY()) < difficulty;
+  }
 }

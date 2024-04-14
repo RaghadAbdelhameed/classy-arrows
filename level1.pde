@@ -20,15 +20,15 @@ class Level1
 
   Level1()
   {
-   
+
     easy = new Button("Easy.png", width/2, height/2-100, 500, 250);
     medium = new Button("Medium.png", width/2, height/2+50, 500, 250);
     hard = new Button("Hard.png", width/2, height/2+200, 500, 250);
-    character = new Character("position1.png","position2.png","chrcDead.png");
+    character = new Character("position1.png", "position2.png", "chrcDead.png", 500, 300);
     background1 = loadImage("bg1.jpg");
     background0 = loadImage("bg0.jpg");
     options = loadImage("Options.png");
-    lvl2=loadImage("level22.jpg");
+    lvl2=loadImage("bg022.png");
     background1.resize(width, height);
     background0.resize(width, height);
     options.resize(800, 400);
@@ -71,12 +71,12 @@ class Level1
     showScore();
     if (shootarrows<20&&shootballoons==15) {
       background(lvl2);
-      character.drawcharacterhappy();
+      character.drawCharacterHappy(800, 600, 150, 760);
       showWin();
     }
     if (shootarrows==20&&shootballoons<15) {
       background(background0);
-      character.drawcharacterdead();
+      character.drawCharacterDead(600, 300, 230, 950);
       showFail();
     }
     textFont(customFont);
@@ -109,17 +109,15 @@ class Level1
     textAlign(LEFT, CENTER);
     text(" Score : " + score, 0, 950);
     text(" Remaining arrows : " + (20-shootarrows), 0, 1000);
-   
   }
   void showWin() {
 
     win=true;
-    fill (102, 0, 102);
+    fill (247, 250, 227);
     textSize(100);
     textAlign(CENTER, CENTER);
     text("Congrats, YOU WIN!!", width / 2, height / 2-50);
     text("Your Score: " + score, width / 2, height / 2+50);
-  
   }
 
 
@@ -162,9 +160,8 @@ class Level1
       medium.buttonCheck(mouseX, mouseY);
     if (!hard.IsButtonClicked())
       hard.buttonCheck(mouseX, mouseY);
-      if(startedgame)
-        action();
-       
+    if (startedgame)
+      action();
   }
   void action()
   {

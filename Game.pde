@@ -8,21 +8,17 @@ void setup() {
   //level1.balloonSound = new SoundFile(this, "X2Download.app - Balloon Pop Sound Effect Royalty Free (128 kbps).mp3");
   level2=new Level2();
   nextLevel=new Button("NextLevel.png", 1700, 950, 700, 350);
-  
 }
 void draw() {
-  level1.start();
-  if(level1.win)
-  {
-   nextLevel.drawButton();
-   if(nextLevel.IsButtonClicked())
-      level2.start();
-  }
-
+  level2.start();
+  //if(level1.win)
+  //{
+  // nextLevel.drawButton();
+  // if(nextLevel.IsButtonClicked())
+  //    level2.start();
+  //}
 }
 void mousePressed() {
-  level1.checkButtons();
-  nextLevel.buttonCheck(mouseX,mouseY);
-  
- 
+  level2.checkButtons();
+  nextLevel.buttonCheck(mouseX, mouseY);
 }
