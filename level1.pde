@@ -28,9 +28,9 @@ class Level1
   Level1()
   {
 
-    easy = new Button("Easy.png", width/2, height/2-100, 500, 250);
-    medium = new Button("Medium.png", width/2, height/2+50, 500, 250);
-    hard = new Button("Hard.png", width/2, height/2+200, 500, 250);
+    easy = new Button("Easy.png", width/2, height/2-100, 380, 130);
+    medium = new Button("Medium.png", width/2, height/2+70,  380, 130);
+    hard = new Button("Hard.png", width/2, height/2+240,  380, 130);
     character = new Character("position1.png", "position2.png", "chrcDead.png", 600, 400);
     background1 = loadImage("backg01.jpg");
     background0 = loadImage("backg012.jpg");
@@ -156,7 +156,7 @@ void showScore() {
   void setdifficulty()
   {
     if (easy.IsButtonClicked())
-      begin(100);
+      begin(150);
     else if (medium.IsButtonClicked())
       begin(60);
     else if (hard.IsButtonClicked())
