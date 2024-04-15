@@ -36,7 +36,7 @@ private  float difficulty;
   }
 
   public void update() {
-    x += 6;
+    x += 8;
   }
 
 

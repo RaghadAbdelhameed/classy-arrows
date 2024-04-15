@@ -1,7 +1,7 @@
 //import processing.sound.*;
 class Level1
 {
-  Button easy, medium, hard, nextLevel;
+  Button easy, medium, hard, nextLevel, restart;
   PImage background1, background0, options;
   PImage lvl2;
   Character character;
@@ -27,6 +27,7 @@ class Level1
   boolean gameended;
   Level1()
   {
+    restart=new Button("Next level.png", 1700, 950, 423, 123);
     nextLevel=new Button("Next level.png", 1700, 950, 423, 123);
     easy = new Button("Easy.png", width/2, height/2-100, 380, 130);
     medium = new Button("Medium.png", width/2, height/2+70, 380, 130);
@@ -43,7 +44,7 @@ class Level1
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow("arrow2.png");
     for (int i=0; i<ballons.length; i++)
-      ballons[i]=new Ballon("redballoon.png",i*100+480, height);
+      ballons[i]=new Ballon("redballoon.png", i*100+480, height);
     customFont = createFont("Speed Rush", 32);
     gameended=false;
     startedgame=false;
@@ -62,6 +63,23 @@ class Level1
     setdificulty=false;
   }
 
+  void Restart()
+  {
+    setdificulty=false;
+    gameended=false;
+    startedgame=false;
+    win=false;
+    shootarrows=0;
+    shootballoons=0;
+    score=0;
+    for (int i=0; i<20; i++)
+      arrows[i]=new Arrow("arrow2.png");
+    for (int i=0; i<ballons.length; i++)
+      ballons[i]=new Ballon("redballoon.png", i*100+480, height);
+      easy.restart();
+      medium.restart();
+      hard.restart();
+  }
 
   void ShowBallons()
   {
@@ -73,14 +91,14 @@ class Level1
 
   void begin(int difficulty)
   {
-    if(!setdificulty)
+    if (!setdificulty)
     {
-      for(Arrow it:arrows)
-       it.setDifficulty(difficulty);
-       setdificulty=true;
+      for (Arrow it : arrows)
+        it.setDifficulty(difficulty);
+      setdificulty=true;
     }
-    
-    
+
+
     startedgame=true;
     background(background1);
     character.display();
@@ -128,10 +146,10 @@ class Level1
       text(" Remaining arrows : " + (20 - shootarrows), 0, 1000);
     }
   }
-boolean getGameEnded()
-{
-  return gameended;
-}
+  boolean getGameEnded()
+  {
+    return gameended;
+  }
 
 
   void showWin() {
@@ -142,9 +160,9 @@ boolean getGameEnded()
     textAlign(CENTER, CENTER);
     text("Congrats, YOU WIN!!", width / 2, height / 2-50);
     text("Your Score: " + score, width / 2, height / 2+50);
-      nextLevel.drawButton();
-      nextLevel.buttonCheck(mouseX,mouseY);
-      if(nextLevel.IsButtonClicked()&&mousePressed)
+    nextLevel.drawButton();
+    nextLevel.buttonCheck(mouseX, mouseY);
+    if (nextLevel.IsButtonClicked()&&mousePressed)
       gameended=true;
   }
 
@@ -155,6 +173,10 @@ boolean getGameEnded()
     textAlign(CENTER, CENTER);
     text("Sorry, You Failed.", width / 2, height / 2-50);
     text("Your Score: " + score, width / 2, height / 2+50);
+    restart.drawButton();
+    restart.buttonCheck(mouseX, mouseY);
+    if (restart.IsButtonClicked()&&mousePressed)
+      Restart();
   }
 
 
@@ -174,12 +196,11 @@ boolean getGameEnded()
   void setdifficulty()
   {
     if (easy.IsButtonClicked())
-      begin(150);
+      begin(100);
     else if (medium.IsButtonClicked())
       begin(60);
     else if (hard.IsButtonClicked())
       begin(20);
-      
   }
   void checkButtons()
   {

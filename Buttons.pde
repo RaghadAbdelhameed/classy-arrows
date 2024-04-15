@@ -26,6 +26,10 @@ class Button {
   boolean IsButtonClicked() {
     return buttonClicked;
   }
+  void restart()
+  {
+    buttonClicked=false;
+  }
   void buttonCheck(int x, int y) {
     int left = textX - textWidth / 2;
     int right = textX + textWidth / 2;
