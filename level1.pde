@@ -105,7 +105,7 @@ class Level1
     DrawArrows();
     ShowBallons();
     showScore();
-    if (shootarrows<=20&&shootballoons==ballons.length&&cheeckarrows()) {
+    if (shootarrows<=20&&shootballoons==ballons.length) {
       background(lvl2);
       character.drawCharacterHappy(widthHappy, heightHappy, xHappy, yHappy);
       showWin();

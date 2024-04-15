@@ -53,7 +53,7 @@ class Level2 extends Level1 {
     DrawArrows();
     ShowBallons();
     showScore();
-    if (shootarrows<=20&&shooredtballoons+shootyellowtballoons==15&&cheeckarrows()) {
+    if (shootarrows<=20&&shooredtballoons+shootyellowtballoons==15) {
       background(lvl2);
       character.drawCharacterHappy(widthHappy, heightHappy, xHappy, yHappy);
       showWin();
