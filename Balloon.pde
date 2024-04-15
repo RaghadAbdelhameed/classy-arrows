@@ -33,12 +33,8 @@ public class Ballon {
   public boolean getExist() {
     return exist;
   }
-  public void display()
-  {
-    imageMode(CENTER);
-    image(balloon, posX, posY);
-    posY-=3;
-    if (posY<0)
-      posY=height;
-  }
+  public void display() {
+  };
+  public void update() {
+  };
 }

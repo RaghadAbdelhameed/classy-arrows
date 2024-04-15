@@ -1,19 +1,26 @@
 class yellow extends Ballon
 {
-  yellow(String imagepath,float x, float y)
-    {
-        super(imagepath,x,y);
-        
-     }
-     @Override
-      public void display()
+  float speed =random(2);
+  float acceleration =random(0.05);
+  yellow(String imagepath, float x, float y)
   {
+    super(imagepath, x, y);
+  }
+  @Override
+    public void update()
+  {
+    speed+=acceleration;
+    posY-=speed;  //moves upward with irregular speed
+    if (posY<0)    // If the balloon goes off-screen, reset its position and parameters
+    {
+      posY=height;
+      speed =random(2);  //reset speed
+      acceleration =random(0.05); //reset acceleration
+    }
+  }
+  @Override
+    public void display() {
     imageMode(CENTER);
     image(balloon, posX, posY);
-    posY-=random(4,7);
-    if (posY<0)
-      posY=height;
   }
- 
-
 }

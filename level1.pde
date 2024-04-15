@@ -9,7 +9,7 @@ class Level1
   int shootarrows;
   int shootballoons;
   Arrow[] arrows=new Arrow[20];
-  Ballon[] ballons=new Ballon[15];
+  red[] ballons=new red[15];
   PFont customFont;
   SoundFile backgroundMusic;
   SoundFile balloonSound;
@@ -44,7 +44,7 @@ class Level1
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow("arrow2.png");
     for (int i=0; i<ballons.length; i++)
-      ballons[i]=new Ballon("redballoon.png", i*100+480, height);
+      ballons[i]=new red("redballoon.png", i*100+480, height);
     customFont = createFont("Speed Rush", 32);
     gameended=false;
     startedgame=false;
@@ -75,7 +75,7 @@ class Level1
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow("arrow2.png");
     for (int i=0; i<ballons.length; i++)
-      ballons[i]=new Ballon("redballoon.png", i*100+480, height);
+      ballons[i]=new red("redballoon.png", i*100+480, height);
       easy.restart();
       medium.restart();
       hard.restart();
@@ -84,10 +84,12 @@ class Level1
   void ShowBallons()
   {
     for (int i = 0; i < ballons.length; i++)  // Display existing balloons
-      if (ballons[i].getExist())
+      if (ballons[i].getExist()){
         ballons[i].display();
-  }
+        ballons[i].update();
 
+  }
+  }
 
   void begin(int difficulty)
   {
