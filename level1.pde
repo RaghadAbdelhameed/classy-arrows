@@ -27,7 +27,7 @@ class Level1
   boolean gameended;
   Level1()
   {
-    restart=new Button("Next level.png", 1700, 950, 423, 123);
+    restart=new Button("Retry.png", 1700, 950, 423, 123);
     nextLevel=new Button("Next level.png", 1700, 950, 423, 123);
     easy = new Button("Easy.png", width/2, height/2-100, 380, 130);
     medium = new Button("Medium.png", width/2, height/2+70, 380, 130);
