@@ -1,7 +1,7 @@
 class Level2 extends Level1 {
   yellow[] danger = new yellow[3];
-int shooredtballoons=0;
-int shootyellowtballoons=0;
+  int shooredtballoons=0;
+  int shootyellowtballoons=0;
 
   Level2() {
     widthHappy = 600;
@@ -53,12 +53,12 @@ int shootyellowtballoons=0;
     DrawArrows();
     ShowBallons();
     showScore();
-    if (shootarrows<20&&shooredtballoons+shootyellowtballoons==15) {
+    if (shootarrows<=20&&shooredtballoons+shootyellowtballoons==15&&cheeckarrows()) {
       background(lvl2);
       character.drawCharacterHappy(widthHappy, heightHappy, xHappy, yHappy);
       showWin();
     }
-    if (shootarrows==20&&shooredtballoons+shootyellowtballoons<15) {
+    if (shootarrows==20&&shooredtballoons+shootyellowtballoons<15&&cheeckarrows()) {
       background(background0);
       character.drawCharacterDead(widthDead, heightDead, xDead, yDead);
       showFail();
@@ -119,19 +119,20 @@ int shootyellowtballoons=0;
       text(" Remaining arrows : " + (20 - shootarrows), 0, 1000);
     }
   }
-    @Override
+  @Override
     void Restart()
   {
+    shootarrows=0;
     setdificulty=false;
     gameended=false;
     startedgame=false;
     win=false;
-    shootarrows=0;
-    shootballoons=0;
+    shooredtballoons=0;
+    shootyellowtballoons=0;
     score=0;
     for (int i = 0; i < 20; i++)
       arrows[i] = new Arrow("arrow1.png");
-     int redIndex = 0;
+    int redIndex = 0;
     int yellowIndex = 0;
     for (int i = 0; i <= 14; i++) {
       if (i % 5 == 2) {
@@ -144,8 +145,8 @@ int shootyellowtballoons=0;
         redIndex++;
       }
     }
-      easy.restart();
-      medium.restart();
-      hard.restart();
+    easy.restart();
+    medium.restart();
+    hard.restart();
   }
 }

@@ -105,12 +105,12 @@ class Level1
     DrawArrows();
     ShowBallons();
     showScore();
-    if (shootarrows<20&&shootballoons==ballons.length) {
+    if (shootarrows<=20&&shootballoons==ballons.length&&cheeckarrows()) {
       background(lvl2);
       character.drawCharacterHappy(widthHappy, heightHappy, xHappy, yHappy);
       showWin();
     }
-    if (shootarrows==20&&shootballoons<ballons.length) {
+    if (shootarrows==20&&shootballoons<ballons.length&&cheeckarrows()) {
       background(background0);
       character.drawCharacterDead(widthDead, heightDead, xDead, yDead);
       showFail();
@@ -118,7 +118,13 @@ class Level1
     textFont(customFont);
   }
 
-
+public boolean cheeckarrows()
+{
+  for(int i=0;i<20;i++)
+   if(arrows[i].getexsist()&&arrows[i].getX()<=width)
+   return false;
+   return true;
+}
 
   void DrawArrows()
   {
