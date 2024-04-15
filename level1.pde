@@ -178,7 +178,8 @@ boolean getGameEnded()
     else if (medium.IsButtonClicked())
       begin(60);
     else if (hard.IsButtonClicked())
-      begin(1);
+      begin(20);
+      
   }
   void checkButtons()
   {
