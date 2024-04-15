@@ -34,6 +34,7 @@ class Level2 extends Level1 {
         redIndex++;
       }
     }
+    
   }
 
   @Override
@@ -64,6 +65,9 @@ class Level2 extends Level1 {
       showFail();
     }
     textFont(customFont);
+     if (!backgroundMusic.isPlaying()) {
+     backgroundMusic.play();
+     }
   }
 
   @Override
@@ -87,12 +91,14 @@ class Level2 extends Level1 {
           if (arrows[i].collidesWith(ballons[j]) && ballons[j].getExist()) {
             ballons[j].setExist(false);
             shooredtballoons++;
+             balloonSound.play();
           }
         }
         for (int j = 0; j < danger.length; j++) {
           if (arrows[i].collidesWith(danger[j]) && danger[j].getExist()) {
             danger[j].setExist(false);
             shootyellowtballoons++;
+             balloonSound.play();
           }
         }
       }
@@ -148,5 +154,6 @@ class Level2 extends Level1 {
     easy.restart();
     medium.restart();
     hard.restart();
+   
   }
 }

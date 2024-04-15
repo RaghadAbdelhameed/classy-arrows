@@ -1,4 +1,4 @@
-//import processing.sound.*;
+import processing.sound.*;
 class Level1
 {
   Button easy, medium, hard, nextLevel, restart;
@@ -11,8 +11,8 @@ class Level1
   Arrow[] arrows=new Arrow[20];
   Ballon[] ballons=new Ballon[15];
   PFont customFont;
-  //SoundFile backgroundMusic;
-  //SoundFile balloonSound;
+  SoundFile backgroundMusic;
+  SoundFile balloonSound;
   boolean startedgame;// indicates the game is started or not?
   boolean win;
   boolean setdificulty;
@@ -135,7 +135,7 @@ public boolean cheeckarrows()
           if (arrows[i].collidesWith(ballons[j])&&ballons[j].getExist()) {// Collision detected
             ballons[j].setExist(false); // Set the balloon as not existing
             shootballoons++;
-            //balloonSound.play();
+            balloonSound.play();
           }
       }
     }
@@ -193,9 +193,9 @@ public boolean cheeckarrows()
     medium.drawButton();
     hard.drawButton();
     image(options, width/2, height/2-300);
-    //if (!backgroundMusic.isPlaying()) {
-    // backgroundMusic.play();
-    // }
+    if (!backgroundMusic.isPlaying()) {
+     backgroundMusic.play();
+     }
     setdifficulty();
   }
 
