@@ -1,10 +1,9 @@
 class red extends Ballon {
-  float speed =3;
-  red(String imagepath, float x, float y)
+  private float speed =3;
+  public red(String imagepath, float x, float y)
   {
     super(imagepath, x, y);
   }
-  @Override
     public void update() {
     posY -= speed; // Move upwards at constant speed
 
@@ -13,9 +12,5 @@ class red extends Ballon {
       posY = height;
     }
   }
-  @Override
-    public void display() {
-    imageMode(CENTER);
-    image(balloon, posX, posY);
-  }
+
 }

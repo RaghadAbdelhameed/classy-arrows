@@ -3,10 +3,9 @@ public class Arrow {
   private float y;
   private  PImage arrow;
   private boolean exists = false; // decides arrow shoot or not
-private  float difficulty;
+  private  float difficulty;
   public Arrow(String imagePath) {
     arrow = loadImage(imagePath);
-
     arrow.resize(100, 100);
   }
 

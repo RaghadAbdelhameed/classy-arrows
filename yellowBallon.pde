@@ -1,12 +1,12 @@
 class yellow extends Ballon
 {
-  float speed =random(2);
-  float acceleration =random(0.05);
-  yellow(String imagepath, float x, float y)
+  private float speed =random(2);
+  private float acceleration =random(0.05);
+  public yellow(String imagepath, float x, float y)
   {
     super(imagepath, x, y);
   }
-  @Override
+
     public void update()
   {
     speed+=acceleration;
@@ -18,9 +18,5 @@ class yellow extends Ballon
       acceleration =random(0.05); //reset acceleration
     }
   }
-  @Override
-    public void display() {
-    imageMode(CENTER);
-    image(balloon, posX, posY);
-  }
+ 
 }

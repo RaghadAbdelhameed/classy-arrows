@@ -11,12 +11,9 @@ public class Character {
     this.character1 = loadImage(path1);
     this.character2 = loadImage(path2);
     this.characterdead = loadImage(pathDead);
-
     // Resize images
     character1.resize(width, height);
     character2.resize(width, height);
-
-
     y = mouseY;
   }
   public void setPostion(boolean position)
