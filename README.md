@@ -1,6 +1,6 @@
 # Bow and Arrow Game
 
-![Background](bg02.png)
+<img src="https://github.com/Khalaf649/classy-arrows/blob/814df815dad1d3899c229888cb1e45fb95bf0138/Screenshot%202024-04-17%20224726.png">
 
 
 
