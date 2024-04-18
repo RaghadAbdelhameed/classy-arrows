@@ -6,18 +6,18 @@ class Level1
   protected PImage lvl2;
   protected Character character;
   protected int score;
-  protected int shootarrows;
-  protected int shooredtballoons;
-  protected int shootyellowtballoons;
+  protected int shootArrows;
+  protected int shootRedBalloons;
+  protected int shootYellowBalloons;
   protected Arrow[] arrows=new Arrow[20];
-  protected red[] redballons=new red[15];
-  protected  yellow[] yellowballons=new yellow[0];
+  protected red[] redBallons=new red[15];
+  protected  yellow[] yellowBallons=new yellow[0];
   protected PFont customFont;
   //protected SoundFile backgroundMusic;
   //protected SoundFile balloonSound;
-  protected boolean startedgame;// indicates the game is started or not?
+  protected boolean startedGame;// indicates the game is started or not?
   protected boolean win;
-  protected boolean setdificulty;
+  protected boolean setDificulty;
   protected int widthHappy;
   protected int heightHappy;
   protected int xHappy;
@@ -26,7 +26,7 @@ class Level1
   protected int heightDead;
   protected int xDead;
   protected int yDead;
-  protected boolean gameended;
+  protected boolean gameEnded;
   public  Level1()
   {
 
@@ -46,16 +46,16 @@ class Level1
     lvl2.resize(width, height);
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow("arrow2.png");
-    for (int i=0; i<redballons.length+yellowballons.length; i++)
-      redballons[i]=new red("redballoon.png", i*100+480, height);
+    for (int i=0; i<redBallons.length+yellowBallons.length; i++)
+      redBallons[i]=new red("redballoon.png", i*100+480, height);
     customFont = createFont("Speed Rush", 32);
-    gameended=false;
-    startedgame=false;
+    gameEnded=false;
+    startedGame=false;
     win=false;
-    setdificulty=false;
-    shootarrows=0;
-    shooredtballoons=0;
-    shootyellowtballoons=0;
+    setDificulty=false;
+    shootArrows=0;
+    shootRedBalloons=0;
+    shootYellowBalloons=0;
     score=0;
     widthHappy=800;
     heightHappy=600;
@@ -69,18 +69,18 @@ class Level1
 
   public void Restart()
   {
-    setdificulty=false;
-    gameended=false;
-    startedgame=false;
+    setDificulty=false;
+    gameEnded=false;
+    startedGame=false;
     win=false;
-    shootarrows=0;
-    shootyellowtballoons=0;
-    shooredtballoons=0;
+    shootArrows=0;
+    shootYellowBalloons=0;
+    shootRedBalloons=0;
     score=0;
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow("arrow2.png");
     for (int i=0; i<15; i++)
-      redballons[i]=new red("redballoon.png", i*100+480, height);
+      redBallons[i]=new red("redballoon.png", i*100+480, height);
     easy.restart();
     medium.restart();
     hard.restart();
@@ -88,40 +88,40 @@ class Level1
 
   public void ShowBallons()
   {
-    for (int i = 0; i < redballons.length; i++)  // Display existing balloons
-      if (redballons[i].getExist()) {
-        redballons[i].display();
-        redballons[i].update();
+    for (int i = 0; i < redBallons.length; i++)  // Display existing balloons
+      if (redBallons[i].getExist()) {
+        redBallons[i].display();
+        redBallons[i].update();
       }
-    for (int i = 0; i < yellowballons.length; i++) {
-      if (yellowballons[i].getExist()) {
-        yellowballons[i].display();
-        yellowballons[i].update();
+    for (int i = 0; i < yellowBallons.length; i++) {
+      if (yellowBallons[i].getExist()) {
+        yellowBallons[i].display();
+        yellowBallons[i].update();
       }
     }
   }
 
   public void begin(int difficulty)
   {
-    if (!setdificulty)
+    if (!setDificulty)
     {
       for (Arrow it : arrows)
         it.setDifficulty(difficulty);
-      setdificulty=true;
+      setDificulty=true;
     }
 
-    startedgame=true;
+    startedGame=true;
     background(background1);
     character.display();
     DrawArrows();
     ShowBallons();
     showScore();
-    if (shootarrows<=20&&shooredtballoons+shootyellowtballoons==15) {
+    if (shootArrows<=20 && shootRedBalloons+shootYellowBalloons==15) {
       background(lvl2);
       character.drawCharacterHappy(widthHappy, heightHappy, xHappy, yHappy);
       showWin();
     }
-    if (shootarrows==20&&shooredtballoons+shootyellowtballoons<15&&cheeckarrows()) {
+    if (shootArrows==20 && shootRedBalloons+shootYellowBalloons<15 && checkArrows()) {
       background(background0);
       character.drawCharacterDead(widthDead, heightDead, xDead, yDead);
       showFail();
@@ -129,10 +129,10 @@ class Level1
     textFont(customFont);
   }
 
-  public boolean cheeckarrows()
+  public boolean checkArrows()
   {
     for (int i=0; i<20; i++)
-      if (arrows[i].getexsist()&&arrows[i].getX()<=width)
+      if (arrows[i].getExist() && arrows[i].getX()<=width)
         return false;
     return true;
   }
@@ -140,20 +140,20 @@ class Level1
   public void DrawArrows()
   {
     for (int i = 0; i < 20; i++) {
-      if (arrows[i].getexsist())
+      if (arrows[i].getExist())
       {
         arrows[i].drawArrow();
-        for (int j = 0; j <redballons.length; j++)
-          if (arrows[i].collidesWith(redballons[j])&&redballons[j].getExist()) {// Collision detected
-            redballons[j].setExist(false); // Set the balloon as not existing
-            shooredtballoons++;
+        for (int j = 0; j <redBallons.length; j++)
+          if (arrows[i].collidesWith(redBallons[j]) && redBallons[j].getExist()) {   // Collision detected
+            redBallons[j].setExist(false); // Set the balloon as not existing
+            shootRedBalloons++;
             // balloonSound.play();
           }
       }
-      for (int j = 0; j < yellowballons.length; j++) {
-        if (arrows[i].collidesWith(yellowballons[j]) && yellowballons[j].getExist()) {
-          yellowballons[j].setExist(false);
-          shootyellowtballoons++;
+      for (int j = 0; j < yellowBallons.length; j++) {
+        if (arrows[i].collidesWith(yellowBallons[j]) && yellowBallons[j].getExist()) {
+          yellowBallons[j].setExist(false);
+          shootYellowBalloons++;
           //    balloonSound.play();
         }
       }
@@ -162,18 +162,18 @@ class Level1
 
 
   public  void showScore() {
-    if (shootarrows < 20 && shooredtballoons+shootyellowtballoons <= 15) { // Only update score if the game is still ongoing
-      score = (20 - shootarrows + 1) * shooredtballoons+shootyellowtballoons*10;
+    if (shootArrows < 20 && shootRedBalloons+shootYellowBalloons <= 15) { // Only update score if the game is still ongoing
+      score = (20 - shootArrows + 1) * shootRedBalloons+shootYellowBalloons*10;
       fill(250);
       textSize(65);
       textAlign(LEFT, CENTER);
       text(" Score : " + score, 0, 950);
-      text(" Remaining arrows : " + (20 - shootarrows), 0, 1000);
+      text(" Remaining arrows : " + (20 - shootArrows), 0, 1000);
     }
   }
   public boolean getGameEnded()
   {
-    return gameended;
+    return gameEnded;
   }
 
 
@@ -190,7 +190,7 @@ class Level1
       nextLevel.buttonCheck(mouseX, mouseY);
 
       if (nextLevel.IsButtonClicked() && mousePressed) {
-        gameended = true;
+        gameEnded = true;
       }
     }
   }
@@ -220,10 +220,10 @@ class Level1
     //if (!backgroundMusic.isPlaying()) {
     // backgroundMusic.play();
     // }
-    setdifficulty();
+    setDifficulty();
   }
 
-  public  void setdifficulty()
+  public  void setDifficulty()
   {
     if (easy.IsButtonClicked())
       begin(100);
@@ -240,7 +240,7 @@ class Level1
       medium.buttonCheck(mouseX, mouseY);
     if (!hard.IsButtonClicked())
       hard.buttonCheck(mouseX, mouseY);
-    if (startedgame)
+    if (startedGame)
       action();
   }
   public void action()
@@ -248,15 +248,15 @@ class Level1
     if (win) // If the game has been won, don't allow shooting arrows
       return;
     if (mouseButton==RIGHT)
-      character.setPostion(!character.getpostion());
+      character.setPostion(!character.getPostion());
     if (mouseButton==LEFT)
     {
-      if (!character.getpostion()&&shootarrows<20)
+      if (!character.getPostion()&&shootArrows<20)
       {
         character.setPostion(true);
-        arrows[shootarrows].setExsist(true);
-        arrows[shootarrows].set(150, character.getY()+40);
-        shootarrows++;
+        arrows[shootArrows].setExist(true);
+        arrows[shootArrows].set(150, character.getY()+40);
+        shootArrows++;
       }
     }
   }

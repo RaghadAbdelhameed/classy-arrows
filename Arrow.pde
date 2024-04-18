@@ -9,7 +9,7 @@ public class Arrow {
     arrow.resize(100, 100);
   }
 
-  public void setExsist(boolean exists) {
+  public void setExist(boolean exists) {
     this.exists = exists;
   }
 
@@ -21,7 +21,7 @@ public class Arrow {
     return y;
   }
 
-  public boolean getexsist() {
+  public boolean getExist() {
     return exists;
   }
 

@@ -2,7 +2,7 @@ class Level2 extends Level1 {
   
 
   Level2() {
-    yellowballons = new yellow[3];
+    yellowBallons = new yellow[3];
     widthHappy = 600;
     heightHappy = 450;
     xHappy = 150;
@@ -15,7 +15,7 @@ class Level2 extends Level1 {
     background0 = loadImage("bg022.png");
     background1.resize(width, height);
     background0.resize(width, height);
-    redballons = new red[12];
+    redBallons = new red[12];
     for (int i = 0; i < 20; i++)
       arrows[i] = new Arrow("arrow1.png");
     character = new Character("position21.png", "position22.png", "position23.png", 400, 300);
@@ -23,10 +23,10 @@ class Level2 extends Level1 {
     int yellowIndex = 0;
     for (int i = 0; i <= 14; i++) {
       if (i % 5 == 2) {
-        yellowballons[yellowIndex] = new yellow("yellowBalloon.png", i * 100 + 480, random(height, height+1000));
+        yellowBallons[yellowIndex] = new yellow("yellowBalloon.png", i * 100 + 480, random(height, height+1000));
         yellowIndex++;
       } else {
-        redballons[redIndex] = new red("redballoon.png", i * 100 + 480, random(height, height+1000));
+        redBallons[redIndex] = new red("redballoon.png", i * 100 + 480, random(height, height+1000));
         redIndex++;
       }
     }
@@ -35,13 +35,13 @@ class Level2 extends Level1 {
   @Override
     public void Restart()
   {
-    shootarrows=0;
-    setdificulty=false;
-    gameended=false;
-    startedgame=false;
+    shootArrows=0;
+    setDificulty=false;
+    gameEnded=false;
+    startedGame=false;
     win=false;
-    shooredtballoons=0;
-    shootyellowtballoons=0;
+    shootRedBalloons=0;
+    shootYellowBalloons=0;
     score=0;
     for (int i = 0; i < 20; i++)
       arrows[i] = new Arrow("arrow1.png");
@@ -49,10 +49,10 @@ class Level2 extends Level1 {
     int yellowIndex = 0;
     for (int i = 0; i <= 14; i++) {
       if (i % 5 == 2) {
-        yellowballons[yellowIndex] = new yellow("yellowBalloon.png", i * 100 + 480, random(height, height+1000));
+        yellowBallons[yellowIndex] = new yellow("yellowBalloon.png", i * 100 + 480, random(height, height+1000));
         yellowIndex++;
       } else {
-        redballons[redIndex] = new red("redballoon.png", i * 100 + 480, random(height, height+1000));
+        redBallons[redIndex] = new red("redballoon.png", i * 100 + 480, random(height, height+1000));
         redIndex++;
       }
     }

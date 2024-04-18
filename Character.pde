@@ -1,26 +1,26 @@
 public class Character {
-  private PImage character1;
-  private PImage character2;
-  private PImage characterdead;
+  private PImage position1;
+  private PImage position2;
+  private PImage characterDead;
   private float y;
   private float x = 100;  // constant; the character just moves 1D
   private boolean position = true;  // true for standard position, otherwise for shooting position
 
   // Constructor with image paths as parameters
   Character(String path1, String path2, String pathDead, int width, int height) {
-    this.character1 = loadImage(path1);
-    this.character2 = loadImage(path2);
-    this.characterdead = loadImage(pathDead);
+    this.position1 = loadImage(path1);
+    this.position2 = loadImage(path2);
+    this.characterDead = loadImage(pathDead);
     // Resize images
-    character1.resize(width, height);
-    character2.resize(width, height);
+    position1.resize(width, height);
+    position2.resize(width, height);
     y = mouseY;
   }
   public void setPostion(boolean position)
   {
     this.position=position;
   }
-  public boolean getpostion()
+  public boolean getPostion()
   {
     return position;
   }
@@ -33,31 +33,31 @@ public class Character {
   public void display()
   {
     if (position)
-      drawCharacter1();
+      drawPostion1();
     else
-      drawCharacter2();
+      drawPostion2();
   }
   public void drawCharacterDead(int width, int height, int x, int y) {
     imageMode(CENTER);
     limitY();
-    characterdead.resize(width, height);
-    image(characterdead, x, y);
+    characterDead.resize(width, height);
+    image(characterDead, x, y);
   }
   public void drawCharacterHappy(int width, int height, int x, int y) {
     imageMode(CENTER);
     limitY();
-    character2.resize(width, height);
-    image(character2, x, y);
+    position2.resize(width, height);
+    image(position2, x, y);
   }
-  public void drawCharacter2() {
+  public void drawPostion2() {
     imageMode(CENTER);
     limitY();
-    image(character2, x, y);
+    image(position2, x, y);
   }
-  public  void drawCharacter1() {
+  public  void drawPostion1() {
     imageMode(CENTER);
     limitY();
-    image(character1, x, y);
+    image(position1, x, y);
   }
   public float getX()
   {
