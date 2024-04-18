@@ -27,13 +27,17 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
 
 - **Position 1**
 
-<img src="./data/position1.png" width="350" height="auto" />
-<img src="./data/position21.png" width="200" height="auto" />
+<div style="display:flex">
+<img src="./data/position1.png" width="300" height="auto" />
+<img src="./data/position21.png"width="180" height="auto" />
+</div>
 
 - **Position 2**
 
-<img src="./data/position2.png" width="350" height="auto" />
-<img src="./data/position22.png" width="200" height="auto" />
+<div style="display:flex">
+<img src="./data/position2.png" width="300" height="auto" />
+<img src="./data/position22.png" width="180" height="auto" />
+</div>
 
 
 ## Gameplay
@@ -46,8 +50,10 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
 - If you use all the arrows and the arrows do not collide with all the balloons, then you have lost and get **"Sorry, you failed"** along with your score. You can retry the level by left-clicking the mouse on the **"Retry"** button, then you can choose the difficulty you want.
 - If all the balloons collide with the arrows, then you have succeeded and  get **"Congrats, you win!"** along with your score. You can move to level 2 by left-clicking the mouse on the **"Next level"** button, then you can choose the difficulty for the new level.
 
+<div style="display:flex">
 <img src="./images/lose1.png" width="250" height="auto" />
 <img src="./images/win1.png" width="250" height="auto" />
+</div>
 
 
 ### Level 2
@@ -59,9 +65,11 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
 - If you use all the arrows and the arrows do not collide with all the balloons, then you have lost and get **"Sorry, you failed"** along with your score. You can retry the level by left-clicking on the mouse on the **"Retry"** button, then you can choose the difficulty you want as level 1.
 - If all the balloons (Red and Yellow) collide with the arrows, then you have succeeded, get **"Congrats, you win!"** along with your score.
 
+
+<div style="display:flex">
 <img src="./images/lose.png" width="250" height="auto" />
 <img src="./images/win2.png" width="250" height="auto" />
-
+</div>
 
 ## Features
 
