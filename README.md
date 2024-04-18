@@ -361,7 +361,9 @@ setup()
 - Processing Library: Required for graphics manipulation and user interaction.
 
 ## UML
-![UML_diagram]()
+
+<img src="./UML_diagram.svg" alt="UML"/>
+
 
 ## Features
 
