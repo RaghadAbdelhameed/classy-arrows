@@ -95,11 +95,10 @@ Balloon balloon = new Balloon("balloon.png", 200, 300);
 balloon.display();
   ```
 
-markdown
 ### RedBalloon Class
 
 #### Overview
-The Red class extends the functionality of the Balloon class to represent a red balloon in the game. This class inherits attributes and methods from the Ballon class while providing custom behavior specific to red balloons.
+The Red class **extends** the functionality of the Balloon class to represent a red balloon in the game. This class inherits attributes and methods from the Ballon class while providing custom behavior specific to red balloons.
 
 #### Constructor
 ```
@@ -107,16 +106,17 @@ red(String imagepath, float x, float y)
 ```
 Creates a new Red object with the specified image path and initial position, utilizing the constructor of the parent Balloon class.
 
-## Methods
+#### Methods
 - ```update():``` **Overrides** the ```update()``` method of the parent class to provide custom behavior for red balloons. The red balloon moves upwards at a constant speed of 3 units per frame. If the balloon goes off-screen, its position is reset to the bottom.
 
-## Usage
+#### Usage
 ```
 // Create red balloons
 Red[] redBalloons = new Red[15];
 for (int i = 0; i < redBalloons.length; i++) {
     redBalloons[i] = new Red("redBalloon.png", i * 100 + 480, height);
 }
+
 // Display red balloons
 for (Red redBalloon : redBalloons) {
     redBalloon.update();
@@ -126,7 +126,7 @@ for (Red redBalloon : redBalloons) {
 
 This class extends the functionality of the Balloon class by introducing specific behavior for red balloons in the game.
 
- ### YellowBalloon Class
+### YellowBalloon Class
 
 #### Overview
 The ‘YellowBalloon’ class **is an extension of** the ‘Balloon’ class, representing a yellow balloon in the game. It inherits attributes and methods from the ‘Balloon’ class and provides custom behavior for displaying the yellow balloon.
@@ -386,7 +386,7 @@ Don't give up if you lose! With the option to retry the game, you can reset and 
   <img src="./images/lose.png" width="400" height="auto" />
 </p>
 
-## License
+## Licenses
 
 -Classy Arrows is open-source software licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute this project for both personal and commercial purposes, as long as the original license terms are retained.
 
