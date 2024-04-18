@@ -1,14 +1,11 @@
 # Bow and Arrow Game
 
-<<<<<<< HEAD
-<img src="https://github.com/Khalaf649/classy-arrows/blob/814df815dad1d3899c229888cb1e45fb95bf0138/Screenshot%202024-04-17%20224726.png">
-=======
-<img src="./images/game.png">
->>>>>>> 842104b4fa5c041eefb2405d3f6d9784b6714a26
 
+<img src="./images/game.png">
 
 
 Welcome to the Bow and Arrow Game, where your aim determines your success! Get ready for the ultimate test of accuracy and nerve as you aim carefully and pop balloons with your bow – every shot counts!
+
 # Table of Contents
 - [Introduction](#introduction)
 - [Controls](#controls)
@@ -30,17 +27,40 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
 
 - **Position 1**
 
-<img src="./data/position1.png" width="380" height="auto" />
-<img src="./data/position21.png" width="230" height="auto" />
+<img src="./data/position1.png" width="350" height="auto" />
+<img src="./data/position21.png" width="200" height="auto" />
 
 - **Position 2**
 
-<img src="./data/position2.png" width="380" height="auto" />
-<img src="./data/position22.png" width="230" height="auto" />
+<img src="./data/position2.png" width="350" height="auto" />
+<img src="./data/position22.png" width="200" height="auto" />
 
 
+## Gameplay
+
+### Level 1
+
+- Game starts with Options (you choose the difficulty of the level you want: easy, medium, or hard by left-clicking the mouse), then level 1 starts.
+- **Balloons:** Red balloons move regularly and at the same speed.
+- You have 20 arrows and 15 red balloons. Whenever you shoot an arrow or an arrow collides with a balloon,The score is calculated by: ```Score = (Remaining Arrows + 1) * Number of Shot Balloons```
+- If you use all the arrows and the arrows do not collide with all the balloons, then you have lost and get **"Sorry, you failed"** along with your score. You can retry the level by left-clicking the mouse on the **"Retry"** button, then you can choose the difficulty you want.
+- If all the balloons collide with the arrows, then you have succeeded and  get **"Congrats, you win!"** along with your score. You can move to level 2 by left-clicking the mouse on the **"Next level"** button, then you can choose the difficulty for the new level.
+
+<img src="./images/lose1.png" width="250" height="auto" />
+<img src="./images/win1.png" width="250" height="auto" />
 
 
+### Level 2
+
+- In level 2, you can move the character, load arrows, and fire them in the same ways as in level 1.
+- **Balloons:** There are two types of balloons, red and yellow **(3 yellow balloons + 12 red balloons)** , and they all move randomly. The yellow balloons move with acceleration, while the red ones move with a constant speed.
+- When an arrow collides with a yellow balloon, the score is increased by 10 points.
+- ```Score = (Remaining Arrows + 1) * Number of Shot Red Balloons + Number of Shot Yellow Balloons * 10 ```
+- If you use all the arrows and the arrows do not collide with all the balloons, then you have lost and get **"Sorry, you failed"** along with your score. You can retry the level by left-clicking on the mouse on the **"Retry"** button, then you can choose the difficulty you want as level 1.
+- If all the balloons (Red and Yellow) collide with the arrows, then you have succeeded, get **"Congrats, you win!"** along with your score.
+
+<img src="./images/lose.png" width="250" height="auto" />
+<img src="./images/win2.png" width="250" height="auto" />
 
 
 ## Features
@@ -49,14 +69,10 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
 
 Adjust the challenge to your skill level with three difficulty settings: easy, medium, and hard. Each difficulty level modifies the collision radius, affecting how close your arrow needs to be to a balloon to pop it. Test your precision and reflexes as you progress from beginner to expert!
 
-<<<<<<< HEAD
-
-<img src="https://github.com/Khalaf649/classy-arrows/blob/a7b21e27829c59c4929e5e22f6d4db3bb7298a37/Screenshot%202024-04-17%20233721.png" width="400" height="auto">
-=======
 <p align="center">
 <img src="./images/options.png" width="400" height="auto" />
 </p>
->>>>>>> 842104b4fa5c041eefb2405d3f6d9784b6714a26
+
 
 ### Immersive Audio Experience
 
@@ -69,20 +85,15 @@ Immerse yourself in an audio-rich environment that enhances every aspect of the 
 ### Retry Game and Set Difficulty Again
 Don't give up if you lose! With the option to retry the game, you can reset and try again. Choose a new difficulty level and challenge yourself to improve your skills. Whether you're a beginner or an expert archer, there's always room for improvement and another chance at victory!
 
-<<<<<<< HEAD
-<img src="https://raw.githubusercontent.com/Khalaf649/classy-arrows/a7b21e27829c59c4929e5e22f6d4db3bb7298a37/Screenshot%202024-04-17%20233829.png" width="400" height="auto">
-=======
 <p align="center">
   <img src="./images/lose.png" width="400" height="auto" />
 </p>
->>>>>>> 842104b4fa5c041eefb2405d3f6d9784b6714a26
+
 
 ## License
 
 -Classy Arrows is open-source software licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute this project for both personal and commercial purposes, as long as the original license terms are retained.
 
-<<<<<<< HEAD
+
 -The background music used in this project is sourced from the Game of Thrones series. All rights to the music belong to its respective copyright holder. The use of this music in this project is permitted under the terms of the license agreement obtained from the copyright holder.
-=======
--The background music used in this project is sourced from the Game of Thrones series. All rights to the music belong to its respective copyright holder. The use of this music in this project is permitted under the terms of the license agreement obtained from the copyright holder.
->>>>>>> 842104b4fa5c041eefb2405d3f6d9784b6714a26
+
