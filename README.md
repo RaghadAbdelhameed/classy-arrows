@@ -1,6 +1,6 @@
 # Bow and Arrow Game
 
-<img src="https://github.com/Khalaf649/classy-arrows/blob/814df815dad1d3899c229888cb1e45fb95bf0138/Screenshot%202024-04-17%20224726.png">
+<img src="./images/game.png">
 
 
 
@@ -24,8 +24,9 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
 
 Adjust the challenge to your skill level with three difficulty settings: easy, medium, and hard. Each difficulty level modifies the collision radius, affecting how close your arrow needs to be to a balloon to pop it. Test your precision and reflexes as you progress from beginner to expert!
 
-
-<img src="https://github.com/Khalaf649/classy-arrows/blob/a7b21e27829c59c4929e5e22f6d4db3bb7298a37/Screenshot%202024-04-17%20233721.png" width="400" height="auto">
+<p align="center">
+<img src="./images/options.png" width="400" height="auto" />
+</p>
 
 ### Immersive Audio Experience
 
@@ -38,7 +39,9 @@ Immerse yourself in an audio-rich environment that enhances every aspect of the 
 ### Retry Game and Set Difficulty Again
 Don't give up if you lose! With the option to retry the game, you can reset and try again. Choose a new difficulty level and challenge yourself to improve your skills. Whether you're a beginner or an expert archer, there's always room for improvement and another chance at victory!
 
-<img src="https://raw.githubusercontent.com/Khalaf649/classy-arrows/a7b21e27829c59c4929e5e22f6d4db3bb7298a37/Screenshot%202024-04-17%20233829.png" width="400" height="auto">
+<p align="center">
+  <img src="./images/lose.png" width="400" height="auto" />
+</p>
 
 ## License
 
