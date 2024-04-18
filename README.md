@@ -360,6 +360,8 @@ setup()
 ### Dependencies
 - Processing Library: Required for graphics manipulation and user interaction.
 
+## UML
+![UML_diagram]()
 
 ## Features
 
