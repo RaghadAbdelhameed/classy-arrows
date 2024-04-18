@@ -362,7 +362,7 @@ setup()
 
 ## UML
 
-<img src="./UML_diagram.svg" alt="UML"/>
+<img src="./UML.svg" alt="UML"/>
 
 
 ## Features
