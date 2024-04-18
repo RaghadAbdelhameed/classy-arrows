@@ -16,7 +16,7 @@ class Button {
   }
 
 
- public void drawButton() {
+  public void drawButton() {
     if (!buttonClicked) {
       imageMode(CENTER);
       image(buttonClick, textX, textY, textWidth, textHeight);
@@ -25,11 +25,11 @@ class Button {
   public boolean IsButtonClicked() {
     return buttonClicked;
   }
- public void restart()
+  public void restart()
   {
     buttonClicked=false;
   }
- public void buttonCheck(int x, int y) {
+  public void buttonCheck(int x, int y) {
     int left = textX - textWidth / 2;
     int right = textX + textWidth / 2;
     int top = textY - textHeight / 2;

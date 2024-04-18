@@ -1,8 +1,6 @@
 class Level2 extends Level1 {
-  
-
   Level2() {
-    yellowBallons = new yellow[3];
+    yellowBalloons = new yellow[3];
     widthHappy = 600;
     heightHappy = 450;
     xHappy = 150;
@@ -15,7 +13,7 @@ class Level2 extends Level1 {
     background0 = loadImage("bg022.png");
     background1.resize(width, height);
     background0.resize(width, height);
-    redBallons = new red[12];
+    redBalloons = new red[12];
     for (int i = 0; i < 20; i++)
       arrows[i] = new Arrow("arrow1.png");
     character = new Character("position21.png", "position22.png", "position23.png", 400, 300);
@@ -23,10 +21,10 @@ class Level2 extends Level1 {
     int yellowIndex = 0;
     for (int i = 0; i <= 14; i++) {
       if (i % 5 == 2) {
-        yellowBallons[yellowIndex] = new yellow("yellowBalloon.png", i * 100 + 480, random(height, height+1000));
+        yellowBalloons[yellowIndex] = new yellow("yellowBalloon.png", i * 100 + 480, random(height, height+1000));
         yellowIndex++;
       } else {
-        redBallons[redIndex] = new red("redballoon.png", i * 100 + 480, random(height, height+1000));
+        redBalloons[redIndex] = new red("redballoon.png", i * 100 + 480, random(height, height+1000));
         redIndex++;
       }
     }
@@ -49,14 +47,14 @@ class Level2 extends Level1 {
     int yellowIndex = 0;
     for (int i = 0; i <= 14; i++) {
       if (i % 5 == 2) {
-        yellowBallons[yellowIndex] = new yellow("yellowBalloon.png", i * 100 + 480, random(height, height+1000));
+        yellowBalloons[yellowIndex] = new yellow("yellowBalloon.png", i * 100 + 480, random(height, height+1000));
         yellowIndex++;
       } else {
-        redBallons[redIndex] = new red("redballoon.png", i * 100 + 480, random(height, height+1000));
+        redBalloons[redIndex] = new red("redballoon.png", i * 100 + 480, random(height, height+1000));
         redIndex++;
       }
     }
-    
+
     easy.restart();
     medium.restart();
     hard.restart();

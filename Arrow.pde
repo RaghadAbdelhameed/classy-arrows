@@ -46,7 +46,7 @@ public class Arrow {
     update();
   }
 
-  public boolean collidesWith(Ballon balloon ) {
+  public boolean collidesWith(Balloon balloon ) {
     return dist(x, y, balloon.getPosX(), balloon.getPosY()) < difficulty;
   }
 }

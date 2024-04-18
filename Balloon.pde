@@ -1,10 +1,10 @@
-public class Ballon {
+public class Balloon {
   protected PImage balloon;
   protected float posX;
   protected float posY;
   protected boolean exist = true; // indicates if the balloon still exists or not
-  
-  public Ballon(String imagepath, float x, float y) {
+
+  public Balloon(String imagepath, float x, float y) {
     balloon = loadImage(imagepath);
     this.posX = x;
     this.posY = y;
@@ -44,5 +44,4 @@ public class Ballon {
     imageMode(CENTER);
     image(balloon, posX, posY);
   }
-  
 }

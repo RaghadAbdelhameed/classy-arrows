@@ -1,10 +1,10 @@
-class red extends Ballon {
+class red extends Balloon {
   private float speed =3;
   public red(String imagepath, float x, float y)
   {
     super(imagepath, x, y);
   }
-    public void update() {
+  public void update() {
     posY -= speed; // Move upwards at constant speed
 
     // If the balloon goes off-screen, reset its position
@@ -12,5 +12,4 @@ class red extends Ballon {
       posY = height;
     }
   }
-
 }

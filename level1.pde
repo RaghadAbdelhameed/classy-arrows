@@ -10,8 +10,8 @@ class Level1
   protected int shootRedBalloons;
   protected int shootYellowBalloons;
   protected Arrow[] arrows=new Arrow[20];
-  protected red[] redBallons=new red[15];
-  protected  yellow[] yellowBallons=new yellow[0];
+  protected red[] redBalloons=new red[15];
+  protected  yellow[] yellowBalloons=new yellow[0];
   protected PFont customFont;
   //protected SoundFile backgroundMusic;
   //protected SoundFile balloonSound;
@@ -46,8 +46,8 @@ class Level1
     lvl2.resize(width, height);
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow("arrow2.png");
-    for (int i=0; i<redBallons.length+yellowBallons.length; i++)
-      redBallons[i]=new red("redballoon.png", i*100+480, height);
+    for (int i=0; i<redBalloons.length+yellowBalloons.length; i++)
+      redBalloons[i]=new red("redballoon.png", i*100+480, height);
     customFont = createFont("Speed Rush", 32);
     gameEnded=false;
     startedGame=false;
@@ -80,7 +80,7 @@ class Level1
     for (int i=0; i<20; i++)
       arrows[i]=new Arrow("arrow2.png");
     for (int i=0; i<15; i++)
-      redBallons[i]=new red("redballoon.png", i*100+480, height);
+      redBalloons[i]=new red("redballoon.png", i*100+480, height);
     easy.restart();
     medium.restart();
     hard.restart();
@@ -88,15 +88,15 @@ class Level1
 
   public void ShowBallons()
   {
-    for (int i = 0; i < redBallons.length; i++)  // Display existing balloons
-      if (redBallons[i].getExist()) {
-        redBallons[i].display();
-        redBallons[i].update();
+    for (int i = 0; i < redBalloons.length; i++)  // Display existing balloons
+      if (redBalloons[i].getExist()) {
+        redBalloons[i].display();
+        redBalloons[i].update();
       }
-    for (int i = 0; i < yellowBallons.length; i++) {
-      if (yellowBallons[i].getExist()) {
-        yellowBallons[i].display();
-        yellowBallons[i].update();
+    for (int i = 0; i < yellowBalloons.length; i++) {
+      if (yellowBalloons[i].getExist()) {
+        yellowBalloons[i].display();
+        yellowBalloons[i].update();
       }
     }
   }
@@ -143,18 +143,18 @@ class Level1
       if (arrows[i].getExist())
       {
         arrows[i].drawArrow();
-        for (int j = 0; j <redBallons.length; j++)
-          if (arrows[i].collidesWith(redBallons[j]) && redBallons[j].getExist()) {   // Collision detected
-            redBallons[j].setExist(false); // Set the balloon as not existing
+        for (int j = 0; j <redBalloons.length; j++)
+          if (arrows[i].collidesWith(redBalloons[j]) && redBalloons[j].getExist()) {   // Collision detected
+            redBalloons[j].setExist(false); // Set the balloon as not existing
             shootRedBalloons++;
-            // balloonSound.play();
+            //balloonSound.play();
           }
       }
-      for (int j = 0; j < yellowBallons.length; j++) {
-        if (arrows[i].collidesWith(yellowBallons[j]) && yellowBallons[j].getExist()) {
-          yellowBallons[j].setExist(false);
+      for (int j = 0; j < yellowBalloons.length; j++) {
+        if (arrows[i].collidesWith(yellowBalloons[j]) && yellowBalloons[j].getExist()) {
+          yellowBalloons[j].setExist(false);
           shootYellowBalloons++;
-          //    balloonSound.play();
+          //balloonSound.play();
         }
       }
     }
@@ -218,8 +218,8 @@ class Level1
     hard.drawButton();
     image(options, width/2, height/2-300);
     //if (!backgroundMusic.isPlaying()) {
-    // backgroundMusic.play();
-    // }
+    //  backgroundMusic.play();
+    //}
     setDifficulty();
   }
 

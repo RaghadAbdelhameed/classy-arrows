@@ -1,4 +1,4 @@
-class yellow extends Ballon
+class yellow extends Balloon
 {
   private float speed =random(2);
   private float acceleration =random(0.05);
@@ -7,7 +7,7 @@ class yellow extends Ballon
     super(imagepath, x, y);
   }
 
-    public void update()
+  public void update()
   {
     speed+=acceleration;
     posY-=speed;  //moves upward with irregular speed
@@ -18,5 +18,4 @@ class yellow extends Ballon
       acceleration =random(0.05); //reset acceleration
     }
   }
- 
 }

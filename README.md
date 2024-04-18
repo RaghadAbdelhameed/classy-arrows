@@ -372,7 +372,7 @@ setup()
 Adjust the challenge to your skill level with three difficulty settings: easy, medium, and hard. Each difficulty level modifies the collision radius, affecting how close your arrow needs to be to a balloon to pop it. Test your precision and reflexes as you progress from beginner to expert!
 
 <p align="center">
-<img src="./images/options.png" width="400" height="auto" />
+<img src="./images/option1.png" width="400" height="auto" />
 </p>
 
 ### Immersive Audio Experience
