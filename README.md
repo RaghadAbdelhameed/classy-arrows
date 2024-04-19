@@ -1,6 +1,6 @@
 # Bow and Arrow Game
 
-<img src="./images/game.png">
+<img src="./1_deliverables/images/game.png">
 
 Welcome to the Bow and Arrow Game, where your aim determines your success! Get ready for the ultimate test of accuracy and nerve as you aim carefully and pop balloons with your bow – every shot counts!
 
