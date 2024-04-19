@@ -6,7 +6,7 @@ class Button {
   private int textHeight; // height for the image
   private boolean buttonClicked; // booelan value determine the button clicked or not
   public Button(String imagePath, int textX, int textY, int textWidth, int textHeight) {
-    buttonClick = loadImage(imagePath);
+    buttonClick = loadImage("1_deliverables/data/"+imagePath);
     this.textX = textX;
     this. textY = textY;
     this.textWidth=textWidth;

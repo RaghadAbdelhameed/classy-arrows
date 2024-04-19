@@ -9,8 +9,8 @@ class Level2 extends Level1 {
     heightDead = 400;
     xDead = 180;
     yDead = 790;
-    background1 = loadImage("bg02.png");
-    background0 = loadImage("bg022.png");
+    background1 = loadImage("1_deliverables/data/bg02.png");
+    background0 = loadImage("1_deliverables/data/bg022.png");
     background1.resize(width, height);
     background0.resize(width, height);
     redBalloons = new red[12];

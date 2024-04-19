@@ -1,4 +1,4 @@
-//import processing.sound.*;
+import processing.sound.*;
 class Level1
 {
   protected Button easy, medium, hard, nextLevel, restart;
@@ -13,8 +13,8 @@ class Level1
   protected red[] redBalloons=new red[15];
   protected  yellow[] yellowBalloons=new yellow[0];
   protected PFont customFont;
-  //protected SoundFile backgroundMusic;
-  //protected SoundFile balloonSound;
+  protected SoundFile backgroundMusic;
+  protected SoundFile balloonSound;
   protected boolean startedGame;// indicates the game is started or not?
   protected boolean win;
   protected boolean setDificulty;
@@ -36,10 +36,10 @@ class Level1
     medium = new Button("Medium.png", width/2, height/2+70, 380, 130);
     hard = new Button("Hard.png", width/2, height/2+240, 380, 130);
     character = new Character("position1.png", "position2.png", "chrcDead.png", 600, 400);
-    background1 = loadImage("backg01.jpg");
-    background0 = loadImage("backg012.jpg");
-    options = loadImage("Options.png");
-    lvl2=loadImage("bg022.png");
+    background1 = loadImage("1_deliverables/data/backg01.jpg");
+    background0 = loadImage("1_deliverables/data/backg012.jpg");
+    options = loadImage("1_deliverables/data/Options.png");
+    lvl2=loadImage("1_deliverables/data/bg022.png");
     background1.resize(width, height);
     background0.resize(width, height);
     options.resize(800, 400);
@@ -147,14 +147,14 @@ class Level1
           if (arrows[i].collidesWith(redBalloons[j]) && redBalloons[j].getExist()) {   // Collision detected
             redBalloons[j].setExist(false); // Set the balloon as not existing
             shootRedBalloons++;
-            //balloonSound.play();
+            balloonSound.play();
           }
       }
       for (int j = 0; j < yellowBalloons.length; j++) {
         if (arrows[i].collidesWith(yellowBalloons[j]) && yellowBalloons[j].getExist()) {
           yellowBalloons[j].setExist(false);
           shootYellowBalloons++;
-          //balloonSound.play();
+          balloonSound.play();
         }
       }
     }
@@ -217,9 +217,9 @@ class Level1
     medium.drawButton();
     hard.drawButton();
     image(options, width/2, height/2-300);
-    //if (!backgroundMusic.isPlaying()) {
-    //  backgroundMusic.play();
-    //}
+    if (!backgroundMusic.isPlaying()) {
+      backgroundMusic.play();
+    }
     setDifficulty();
   }
 

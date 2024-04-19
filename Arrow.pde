@@ -5,7 +5,7 @@ public class Arrow {
   private boolean exists = false; // decides arrow shoot or not
   private  float difficulty;
   public Arrow(String imagePath) {
-    arrow = loadImage(imagePath);
+    arrow = loadImage("1_deliverables/data/"+imagePath);
     arrow.resize(100, 100);
   }
 

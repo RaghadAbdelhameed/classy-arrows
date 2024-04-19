@@ -5,7 +5,7 @@ public class Balloon {
   protected boolean exist = true; // indicates if the balloon still exists or not
 
   public Balloon(String imagepath, float x, float y) {
-    balloon = loadImage(imagepath);
+    balloon = loadImage("1_deliverables/data/"+imagepath);
     this.posX = x;
     this.posY = y;
     balloon.resize(80, 100);

@@ -8,9 +8,9 @@ public class Character {
 
   // Constructor with image paths as parameters
   Character(String path1, String path2, String pathDead, int width, int height) {
-    this.position1 = loadImage(path1);
-    this.position2 = loadImage(path2);
-    this.characterDead = loadImage(pathDead);
+    this.position1 = loadImage("1_deliverables/data/"+path1);
+    this.position2 = loadImage("1_deliverables/data/"+path2);
+    this.characterDead = loadImage("1_deliverables/data/"+pathDead);
     // Resize images
     position1.resize(width, height);
     position2.resize(width, height);
