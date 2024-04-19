@@ -26,15 +26,15 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
  **Position 1**
 
 <div style="display:flex">
-<img src="./data/position1.png" width="350" height="auto" />
-<img src="./data/position21.png"width="200" height="auto" />
+<img src="./1_deliverables/data/position1.png" width="350" height="auto" />
+<img src="./1_deliverables/data/position21.png"width="200" height="auto" />
 </div>
 
  **Position 2**
 
 <div style="display:flex">
-<img src="./data/position2.png" width="350" height="auto" />
-<img src="./data/position22.png" width="200" height="auto" />
+<img src="./1_deliverables/data/position2.png" width="350" height="auto" />
+<img src="./1_deliverables/data/position22.png" width="200" height="auto" />
 </div>
 
 ## Gameplay
@@ -48,8 +48,8 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
 - If all the balloons collide with the arrows, then you have succeeded and  get **"Congrats, you win!"** along with your score. You can move to level 2 by left-clicking the mouse on the **"Next level"** button, then you can choose the difficulty for the new level.
 
 <div style="display:flex">
-<img src="./images/lose1.png" width="350" height="auto" />
-<img src="./images/win1.png" width="350" height="auto" />
+<img src="./1_deliverables/images/lose1.png" width="350" height="auto" />
+<img src="./1_deliverables/images/win1.png" width="350" height="auto" />
 </div>
 
 ### Level 2
@@ -62,8 +62,8 @@ Welcome to our Bow and Arrows game! This game offers an exciting archery experie
 - If all the balloons (Red and Yellow) collide with the arrows, then you have succeeded, get **"Congrats, you win!"** along with your score.
 
 <div style="display:flex">
-<img src="./images/lose.png" width="350" height="auto" />
-<img src="./images/win2.png" width="350" height="auto" />
+<img src="./1_deliverables/images/lose.png" width="350" height="auto" />
+<img src="./1_deliverables/images/win2.png" width="350" height="auto" />
 </div>
 
 ## Code Structure
@@ -362,7 +362,7 @@ setup()
 
 ## UML
 
-<img src="./UML.svg" alt="UML"/>
+<img src="./1_deliverables/UML.svg" alt="UML"/>
 
 
 ## Features
@@ -372,7 +372,7 @@ setup()
 Adjust the challenge to your skill level with three difficulty settings: easy, medium, and hard. Each difficulty level modifies the collision radius, affecting how close your arrow needs to be to a balloon to pop it. Test your precision and reflexes as you progress from beginner to expert!
 
 <p align="center">
-<img src="./images/option1.png" width="400" height="auto" />
+<img src="./1_deliverables/images/option1.png" width="400" height="auto" />
 </p>
 
 ### Immersive Audio Experience
@@ -387,7 +387,7 @@ Immerse yourself in an audio-rich environment that enhances every aspect of the 
 Don't give up if you lose! With the option to retry the game, you can reset and try again. Choose a new difficulty level and challenge yourself to improve your skills. Whether you're a beginner or an expert archer, there's always room for improvement and another chance at victory!
 
 <p align="center">
-  <img src="./images/lose.png" width="400" height="auto" />
+  <img src="./1_deliverables/images/lose.png" width="400" height="auto" />
 </p>
 
 ## Licenses
